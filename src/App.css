@@ -1,0 +1,354 @@
+body{
+  display: flex;
+  flex-direction: column;
+  background: #F9F7F3;
+/* background: radial-gradient(circle, rgba(251,250,245,1) 0%, rgba(241,219,223,1) 100%); */
+/* padding-top: 30px; */
+}
+
+.App{
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  height : 100%;
+  width : 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: space-between;
+}
+
+
+
+
+
+header{
+ 
+  display : flex;
+  border-bottom: 1px solid #d2d2d7;
+  justify-content: space-around;
+  align-items: center;
+  width : 100vw!important;
+  height : 48px;
+  /* background-color: #FFE6E6; */
+    /* background-color: #F7ECE1;
+    background-color : #02111B;
+    background-color: #e6b89c!important; */
+}
+
+#poesis{
+  width : max-content;
+  padding : 5px;
+  height : auto;
+  /* background-color: #ffffff7b; */
+  color : #02111B;;
+  /* border : 1px solid #b63838; */
+  /* margin : auto; */
+  text-align: center;
+  display: flex;
+justify-content: center;
+align-items: center;
+font-family: 'Sacramento', cursive;
+font-size: 28px;
+/* transform: rotate(2deg);
+text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); */
+/* border-radius: 20px; */
+margin-left : 10px;
+margin-top : 15px;
+font-weight: 550;
+  
+}
+
+#basic-nav-dropdown{
+color : #02111B;
+font-size: 18px;
+}
+
+#formContainer{
+  margin : auto!important;
+  margin-top : 70px;
+  min-height: 350px;
+  height : auto;
+  width : 650px;
+  /* border : 1px solid #b63838; */
+  background-color:  #ffffff;
+  border-radius : 20px;
+  border : 1px solid #cecece;
+  /* padding : 30px; */
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+
+}
+
+.container{
+  display : flex;
+  flex-direction: column;
+  /* height : auto; */
+  /* margin : auto; */
+  /* padding : 20px; */
+  /* height : 80%!important; */
+  /* align-items: center; */
+  padding : 20px;
+  margin-top : 100px!important;
+  width : 650px!important;
+  /* border : 1px solid gray; */
+  /* align-self: center; */
+  box-shadow: #AC837A 0px 3px 12px;
+  /* min-height : 300px; */
+  /* align-items: center; */
+}
+
+
+
+.formCheckDiv{
+  margin:auto;
+  margin-left:0px;
+}
+
+form{
+  height : 100%;
+}
+
+.card{
+  height: 100%;
+  display: flex;
+  border : none!important;
+}
+
+.card-body{
+  /* height : 100%!important; */
+  display: flex!important;
+  flex-direction: column!important;
+  justify-content: space-between;
+  width : 100%;
+  align-self: stretch;
+  padding : 0;
+  margin: auto;
+  margin-bottom: 0!important;
+}
+
+.card-body img{
+  height : 80px;
+  width : 80px;
+  /* margin : auto; */
+  margin-top : 10px;
+  margin-bottom : 30px;
+}
+
+.form-label {
+  font-size: 22px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.formController {
+  display: flex;
+  flex-direction: column;
+  min-height : 300px;
+  align-items: stretch;
+  /* justify-content: space-between; */
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* height : auto; */
+  /* justify-content: space-between; */
+  opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.formController.show{
+  opacity: 1;
+}
+
+
+.formQuestion{
+  display: flex;
+  flex-direction: column;
+  
+}
+.form-control {
+  margin-bottom: 50px;
+  width : 200px;
+}
+
+.form-check{
+  width : max-content;
+  /* margin : auto; */
+  margin-top : 10px;
+  display: flex;
+  align-items: center;
+  padding: 0px!important;
+}
+
+.form-check input{
+  margin : auto!important;
+  margin-top: 10px!important;
+  margin-right : 8px!important;
+  align-self: center;
+  align-items: center;
+  height : 1.25em;
+  width : 1.25em;
+}
+
+.form-check-label{
+  font-size : 25px;
+  font-family: 'Open Sans', sans-serif;
+  
+}
+
+.d-flex{
+  margin-top : 30px;
+}
+
+.formPoem{
+  margin-bottom : 200px;
+  /* height : auto; */
+  display: flex;
+}
+
+.btn{
+  background-color: white;
+  border-radius : 10px;
+  padding : 20px;
+  color : black;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bolder;
+  cursor: pointer;
+  border : 1px solid #cecece;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.d-flex{
+  display : flex;
+  justify-content: space-between;
+  width : 100%;
+}
+
+#prenomBox{
+  width : 300px;
+  height : 40px;
+  font-size: 22px;
+  padding : 25px;
+  border : 2px solid #cecece;
+  border-radius: 12px;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  margin : auto;
+  margin-left : 0px;
+}
+
+.occasionChoix{
+  display: flex;
+  align-items: center;
+}
+
+.occasionChoix img{
+  width : 30px;
+  height : 30px;
+  margin : 0;
+  margin-left: 10px;
+}
+
+#prenomImg{
+  width : 32px;
+  height : 32px;
+  margin-bottom: 0px;
+  margin-top : 0px;
+  margin-left : 20px;
+}
+
+#poem{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height : max-content;
+}
+
+#poem .card-header{
+
+  font-size : 25px;
+  font-weight : bold;
+  text-align: center;
+  display : flex;
+  justify-content: center;
+}
+
+#generatedPoemContainer{
+  
+  min-height: 300px;
+  height : auto;
+  width : 85%;
+  border : 1px dashed gray;
+  padding : 15px;
+}
+
+.generatedPoemContainer{
+  height : max-content!important;
+  margin : auto;
+}
+
+.generatedPoemButton{
+  width : 130px;
+  height : 45px;
+  text-align: center;
+  padding : 5px;
+}
+
+.formButton:focus,
+.formButton:active {
+  /* Réinitialisez ici les styles par défaut des boutons lorsqu'ils sont cliqués ou actifs */
+  outline: none;
+  box-shadow: none!important;
+}
+
+.generatedPoemButtonsDiv {
+  display: flex;
+  justify-content: space-around;
+  width : 100%;
+  margin-top : 30px;
+}
+
+#loadingTitle{
+  text-align: center;
+  width : 100%;
+  font-family: "Sacramento";
+  font-size : 32px;
+  margin-bottom : 50px;
+}
+
+#imgBravo{
+  height : 32px;
+  width:32px;
+  margin-left : 10px;
+}
+
+.bravoText{
+  font-family: 'Dosis', sans-serif;
+  background-color: #ffffff!important;
+  
+}
+
+footer {
+  height : 200px;
+  background-color: #ffffff;
+  width:100%!important;
+  display: flex;
+  margin-top : 100px;
+  border-top: 1px solid #d2d2d7;
+}
+
+#footerDiv{
+  width:80%;
+  height : 70%;
+  margin : auto;
+  border-top: 1px solid #d2d2d7;
+  display: flex;
+  justify-content: space-around;
+}
+
+#footerDiv ul{
+  list-style: none;
+  margin-top : 10px;
+}
