@@ -19,8 +19,8 @@ const fetchUserBackgroundImage = async () => {
       },
     });
     console.log(response.data);
-    const imageUrlWithoutUploads = response.data.backgroundImage.replace('uploads/', '');
-    setBackgroundImage(`${imageUrlWithoutUploads}`); // Chargez l'image directement
+    // const imageUrlWithoutUploads = response.data.backgroundImage;
+    setBackgroundImage(`${response.data.backgroundImage}`); // Chargez l'image directement
   } catch (error) {
     console.error(error);
   }
