@@ -17,7 +17,7 @@ body{
   flex-direction: column;
   /* justify-content: space-between; */
   align-items: space-between;
-  /* background-image: url("./img/layered-waves-haikei.svg"); */
+  background-image: url("./img/layered-waves-haikei.svg");
   background-size:cover;
   background-repeat: no-repeat;
   
