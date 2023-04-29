@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import "./authForm.css";
-import { useNavigate } from 'react-router-dom';
 const backendUrl = "https://pure-stream-14786.herokuapp.com";
 
 const AuthForm = ({ onLogin }) => {
-  const navigate = useNavigate();
   const [showLoginForm, setShowLoginForm] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

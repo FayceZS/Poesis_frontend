@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import { Container, Form, Button } from 'react-bootstrap';
 import "./userProfile.css";
 import axios from 'axios';
 const backendUrl = "https://pure-stream-14786.herokuapp.com";
 
 const UserProfile = () => {
   const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [password] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 const [successMessage, setSuccessMessage] = useState('');
   const [address, setAddress] = useState({

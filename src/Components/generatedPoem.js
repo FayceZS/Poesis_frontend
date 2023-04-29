@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Container, Form, Card, Button, Spinner } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import ReactToPrint from 'react-to-print';
 import smileyAmoureux from '../img/smileyAmoureux.png';
 import './generatedPoem.css';
@@ -36,7 +36,7 @@ const fetchUserBackgroundImage = async () => {
         <Card className="generatedPoemContainer print-card">
           <Card.Header className="bravoText">
             Bravo ! voici votre chef d'oeuvre{' '}
-            <img src={smileyAmoureux} id="imgBravo" />
+            <img src={smileyAmoureux} id="imgBravo" alt="smiley coeur"/>
           </Card.Header>
           <Card.Body id="generatedPoemContainer" className="print-content">
             <div

@@ -1,8 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react'; 
 import './App.css';
 import PoemForm from './Components/form.js';
-import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap';
-import BootstrapSpinner from './Components/bootstrapSpinner';
+import { Container } from 'react-bootstrap';
 import Navigation from './Components/Navigation';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'animate.css';

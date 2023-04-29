@@ -1,5 +1,4 @@
 import React from 'react';
-import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap';
 import logoPoesis from "../img/logoPoesis.png";
 import iconLogout from "../img/iconLogout.png";
 import ecrirePoem from "../img/ecrirePoem.png";
@@ -12,22 +11,22 @@ const Navigation = ({ isUserLoggedIn, onLogout }) => {
       <header>
         
           <a href="/">
-            <img src={logoPoesis} />
+            <img src={logoPoesis} alt="logoPoesis"/>
           </a>
         
 
         {isUserLoggedIn && (
           <div>
             <a href="/user-profile">
-              <img src={iconProfil} />
+              <img src={iconProfil} alt="icone profil" />
               Profil
             </a>
             <a href="/generate-poem">
-              <img src={ecrirePoem} />
+              <img src={ecrirePoem} alt="ecrire un poème"/>
               Poème
             </a>
             <a onClick={onLogout} href="/">
-              <img src={iconLogout} />
+              <img src={iconLogout} alt="deconnexion"/>
               Deconnexion
             </a>
           </div>

@@ -1,12 +1,9 @@
 import React, { useState,useEffect } from "react";
-import { Container, Form, Card, Button, Spinner } from "react-bootstrap";
+import { Container, Form, Card, Button } from "react-bootstrap";
 import BootstrapSpinner from "./bootstrapSpinner";
 // import GeneratedPoem from "./generatedPoem";
 import GeneratedPoemTest from "./generatedPoem";
 import "./form.css";
-import ReactToPrint from 'react-to-print';
-import axios from 'axios';
-import genre from "../img/genre.png"
 import carteMentale from "../img/carteMentale.png"
 import petitCoeur from "../img/petitCoeur.png"
 import mariage from "../img/mariage.png"
@@ -24,7 +21,6 @@ const PoemForm = () => {
   const [step, setStep] = useState(1);
   const [gender, setGender] = useState("");
   const [firstName, setFirstName] = useState("");
-  const [signature, setSignature] = useState("");
   const [occasion, setOccasion] = useState("");
   const [author, setAuthor] = useState("");
   const [poem, setPoem] = useState("");
@@ -85,7 +81,6 @@ const PoemForm = () => {
   const resetStates = () => {
     setGender('');
     setFirstName('');
-    setSignature('');
     setOccasion('');
     setAuthor('');
     setSignataire('');
@@ -150,7 +145,7 @@ const PoemForm = () => {
                   onChange={(e) => setGender(e.target.value)}
                   value="une femme"
                     />
-                    <img src={woman} className="animate__animated animate__flipInY"/>
+                    <img src={woman} className="animate__animated animate__flipInY" alt="femme"/>
                   </div> 
                   <div className="occasionChoix">
                 <Form.Check
@@ -161,7 +156,7 @@ const PoemForm = () => {
                   onChange={(e) => setGender(e.target.value)}
                   value="un homme"
                     />
-                    <img src={man} className="animate__animated animate__flipInY"/>
+                    <img src={man} className="animate__animated animate__flipInY" alt="homme"/>
                   </div>
                 </div>
               </Form.Group>
@@ -171,7 +166,7 @@ const PoemForm = () => {
               <Form.Group controlId="firstName" className="formController show">
                 <div>
                 <Form.Label >Quel est son prénom ?</Form.Label>
-                <img src={carteMentale} id="prenomImg" className="animate__animated animate__flip"/>
+                <img src={carteMentale} id="prenomImg" className="animate__animated animate__flip" alt="prenom"/>
                 </div>
                 <Form.Control
                   type="text"
@@ -212,7 +207,7 @@ const PoemForm = () => {
                     value="d'amour"
                     className="animate__animated animate__backInRight"
         />
-        <img src={petitCoeur} id="petitCoeur" className="animate__animated animate__backInRight"/>
+        <img src={petitCoeur} id="petitCoeur" className="animate__animated animate__backInRight" alt="petit coeur"/>
         </div>
         <div className="occasionChoix">
         <Form.Check
@@ -224,7 +219,7 @@ const PoemForm = () => {
                     value="pour un mariage"
                     className="animate__animated animate__backInRight"
         />
-        <img src={mariage} className="animate__animated animate__backInRight"/>
+        <img src={mariage} className="animate__animated animate__backInRight" alt="mariage"/>
         </div>
         <div className="occasionChoix">
         <Form.Check
@@ -236,7 +231,7 @@ const PoemForm = () => {
                     value="d'anniversaire"
                     className="animate__animated animate__backInRight"
         />
-        <img src={birthday} className="animate__animated animate__backInRight"/>
+        <img src={birthday} className="animate__animated animate__backInRight" alt="anniversaire"/>
         </div>
         <div className="occasionChoix">
         <Form.Check
@@ -248,7 +243,7 @@ const PoemForm = () => {
                     value="d'amitié"
                     className="animate__animated animate__backInRight"
         /> 
-        <img src={amis} className="animate__animated animate__backInRight"/>
+        <img src={amis} className="animate__animated animate__backInRight" alt="amitié"/>
         </div>
         <div className="occasionChoix">
         <Form.Check
@@ -260,7 +255,7 @@ const PoemForm = () => {
                     value="de naissance"
                     className="animate__animated animate__backInRight"
         />
-        <img src={baby} className="animate__animated animate__backInRight"/>
+        <img src={baby} className="animate__animated animate__backInRight" alt="naissance"/>
         </div>
               </Form.Group>
             )}
