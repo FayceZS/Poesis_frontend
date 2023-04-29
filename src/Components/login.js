@@ -48,7 +48,7 @@ function Login({ setLoggedIn }) {
             onChange={(e) => setNumberSiret(e.target.value)}
           />
         </div>
-        <button type="submit">Se connecter</button>
+        <button type="submit">Test</button>
       </form>
     </div>
   );
