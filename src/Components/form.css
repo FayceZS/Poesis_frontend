@@ -6,7 +6,6 @@
 
 .formButton:focus,
 .formButton:active {
-    /* Réinitialisez ici les styles par défaut des boutons lorsqu'ils sont cliqués ou actifs */
     background-color: #a28089 !important;
     outline: none;
     box-shadow: none !important;
