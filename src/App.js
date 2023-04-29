@@ -1,42 +1,85 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, Fragment } from 'react'; 
 import './App.css';
 import PoemForm from './Components/form.js';
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap';
 import BootstrapSpinner from './Components/bootstrapSpinner';
 import Navigation from './Components/Navigation';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import 'animate.css';
 import Footer from './Components/footer';
-import Login from './Components/login';
+import AuthForm from './Components/authForm';
+import UserProfile from './Components/UserProfile';
+import introPoesisVideo from "./img/Poesis.mp4"; // Modifiez le chemin d'importation pour votre vidéo
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(localStorage.getItem('authToken') !== null);
+  const [showImage, setShowImage] = useState(false);
+
+  const handleUserLoggedIn = () => {
+    setLoggedIn(true);
+    setShowImage(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');
+    setLoggedIn(false);
+  };
+
+  useEffect(() => {
+    if (showImage) {
+      const timer = setTimeout(() => {
+        setShowImage(false);
+      }, 5000);
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [showImage]);
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Navigation />
-        <Routes>
-          {/* <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
-          <Route
-            path="/"
-            element={
-              loggedIn ? <PoemForm /> : <Login/>
-            }
-          />
-          <Route
-            path="/generate-poem"
-            element={
-              loggedIn ? <PoemForm /> : <Login/>
-            }
-          />
-          autres routes ici */}
-          <Route
-            path="/generate-poem"
-            element={
-             <PoemForm /> 
-            }
-          />
-        </Routes>
+        <Navigation isUserLoggedIn={loggedIn} onLogout={handleLogout} />
+        {showImage ? (
+          <Container>
+            <video
+              src={introPoesisVideo}
+              alt="Connexion réussie"
+              id="introPoesis"
+              className="w-100"
+              autoPlay
+              muted
+              loop
+            />
+          </Container>
+        ) : (
+          <Fragment>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  loggedIn && !showImage ? <PoemForm /> : <AuthForm onLogin={handleUserLoggedIn} />
+                }
+              />
+              <Route
+                path="/generate-poem"
+                element={
+                  loggedIn && !showImage ? <PoemForm /> : <AuthForm onLogin={handleUserLoggedIn} />
+                }
+              />
+              <Route
+                path="/user-profile"
+                element={
+                  loggedIn && !showImage ? (
+                    <UserProfile />
+                  ) : (
+                    <AuthForm onUserLoggedIn={handleUserLoggedIn} />
+                  )
+                }
+              />
+            </Routes>
+          </Fragment>
+        )}
         <Footer />
       </BrowserRouter>
     </div>

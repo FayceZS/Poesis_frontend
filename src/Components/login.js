@@ -4,6 +4,7 @@ import "./login.css";
 function Login({ setLoggedIn }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [numberSiret, setNumberSiret] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,6 +39,13 @@ function Login({ setLoggedIn }) {
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+          />
+          <label htmlFor="numberSiret">Mot de passe:</label>
+          <input
+            type="text"
+            id="numberSiret"
+            value={numberSiret}
+            onChange={(e) => setNumberSiret(e.target.value)}
           />
         </div>
         <button type="submit">Se connecter</button>

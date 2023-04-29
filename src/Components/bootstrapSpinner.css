@@ -1,0 +1,18 @@
+.loadingDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#loadingTitle{
+    margin-bottom: 0px;
+    margin-top : 25px;
+    text-align: center;
+    font-family: 'Roboto';
+}
+
+
+#loadingPoem{
+    width : 80%!important;
+    margin : auto;
+}

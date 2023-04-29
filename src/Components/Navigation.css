@@ -1,0 +1,39 @@
+header {
+
+    display: flex;
+    border-bottom: 1px solid #d2d2d7;
+    justify-content: space-around;
+    align-items: center;
+    width: auto;
+    height: 80px;
+    background-color: #ffffff;
+    /* background-color: #FFE6E6; */
+    /* background-color: #F7ECE1;
+    background-color : #02111B;
+    background-color: #e6b89c!important; */
+}
+
+header a img{
+    height: 75px;
+        width: 110px;
+}
+
+header div {
+    width : 300px;
+    display: flex;
+    justify-content: space-around;
+}
+
+header div a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color : black;
+    justify-content: center;
+    align-items: center;
+}
+
+header div a img {
+    height : 45px;
+    width : 45px;
+}

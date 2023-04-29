@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+}
+
+.generatedPoemContainer {
+    height: max-content !important;
+    margin: auto;
+}
+
+.generatedPoemButton {
+    width: 130px;
+    height: 45px;
+    text-align: center;
+    padding: 5px;
+}
+
+.print-content {
+    width: 105mm;
+    /* Utiliser min-width pour permettre l'adaptation */
+    min-height: 138mm;
+    /* Utiliser min-height pour permettre l'adaptation */
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 40px;
+    page-break-inside: avoid;
+}
+
+.cardBackground {
+    width: 105mm !important;
+    /* Utiliser min-width pour permettre l'adaptation */
+    min-height: 147mm !important;
+    /* Utiliser min-height pour permettre l'adaptation */
+    background-image: url("../img/poemBackground.jpg");
+    background-size: cover;
+}
+
+
+
+/* .print-content:last-child { */
+    /* text-align : right; */
+/* } */
+
+/* @media print {
+    @page {
+        size: 105mm 148mm !important;
+        margin: 0mm !important;
+    }
+} */
+
+@media print {
+    .print-container {
+        width: 105mm !important;
+        /* Utiliser min-width pour permettre l'adaptation */
+        min-height: 148mm !important;
+        /* Utiliser min-height pour permettre l'adaptation */
+        
+        position: absolute;
+        top: 0;
+        right: 0;
+        overflow: hidden;
+       
+    }
+
+    .print-content div{
+        font-weight: lighter; 
+    }
+
+    /* .print-content { */
+        /* justify-content: stretch; */
+        /* Changé en flex-start pour aligner le contenu en haut */
+        /* align-items: flex-start; */
+        /* Changé en flex-end pour aligner le contenu à droite */
+        /* padding: 10px; */
+        /* Réduit le padding pour aligner le poème en haut à droite lors de l'impression */
+    /* } */
+}

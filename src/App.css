@@ -2,6 +2,7 @@ body{
   display: flex;
   flex-direction: column;
   background: #F9F7F3;
+  
 /* background: radial-gradient(circle, rgba(251,250,245,1) 0%, rgba(241,219,223,1) 100%); */
 /* padding-top: 30px; */
 }
@@ -16,48 +17,57 @@ body{
   flex-direction: column;
   /* justify-content: space-between; */
   align-items: space-between;
+  background-image: url("./img/layered-waves-haikei.svg");
+  background-size:cover;
+  background-repeat: no-repeat;
+  
+}
+
+#root{
+  /* background-image: url("./img/wave-haikei.png"); */
+
 }
 
 
 
 
 
-header{
- 
-  display : flex;
-  border-bottom: 1px solid #d2d2d7;
-  justify-content: space-around;
-  align-items: center;
-  width : 100vw!important;
-  height : 48px;
-  /* background-color: #FFE6E6; */
-    /* background-color: #F7ECE1;
-    background-color : #02111B;
-    background-color: #e6b89c!important; */
-}
 
-#poesis{
+
+/* #poesis{
   width : max-content;
   padding : 5px;
   height : auto;
   /* background-color: #ffffff7b; */
-  color : #02111B;;
+  /* color : #02111B;; */
   /* border : 1px solid #b63838; */
   /* margin : auto; */
-  text-align: center;
+  /* text-align: center;
   display: flex;
 justify-content: center;
 align-items: center;
-font-family: 'Sacramento', cursive;
-font-size: 28px;
+font-family: 'Sacramento', cursive; */
+/* font-size: 28px; */
 /* transform: rotate(2deg);
 text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); */
 /* border-radius: 20px; */
-margin-left : 10px;
+/* margin-left : 10px;
 margin-top : 15px;
 font-weight: 550;
   
 }
+
+#poesis a{
+  text-decoration: none;
+  color : #a28089;
+  font-size : 45px;
+} * */
+
+#poesis a img{
+  height: 250px;
+  width : 280px;
+}
+
 
 #basic-nav-dropdown{
 color : #02111B;
@@ -83,6 +93,17 @@ font-size: 18px;
 
 }
 
+#introPoesis{
+  height : 350px;
+  width : 350px;
+  margin : auto;
+}
+
+.authFormDiv{
+  background-color: #ffffff;
+  border-top : 1px solid black;
+}
+
 .container{
   display : flex;
   flex-direction: column;
@@ -99,13 +120,19 @@ font-size: 18px;
   box-shadow: #AC837A 0px 3px 12px;
   /* min-height : 300px; */
   /* align-items: center; */
+  background-color: #ffffff;
 }
 
 
 
 .formCheckDiv{
-  margin:auto;
+  /* margin:auto; */
   margin-left:0px;
+  height : 200px;
+  padding-top : 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 form{
@@ -264,6 +291,8 @@ form{
   flex-direction: column;
   justify-content: space-around;
   height : max-content;
+  min-height: 516px;
+  min-height: 380px;
 }
 
 #poem .card-header{
@@ -275,40 +304,21 @@ form{
   justify-content: center;
 }
 
-#generatedPoemContainer{
+/* #generatedPoemContainer{
   
-  min-height: 300px;
-  height : auto;
-  width : 85%;
-  border : 1px dashed gray;
-  padding : 15px;
-}
+  /* min-height: 300px; */
+  /* height : auto; */
+  /* width : 400px; */
+  /* height : 563px; */
+  /* border : 1px dashed gray; */
+  /* padding : 35px; */
+  /* padding : auto; */
+/* }
 
-.generatedPoemContainer{
-  height : max-content!important;
-  margin : auto;
-}
+#generatedPoemContainer:last-child{
+  text-align: right!important;
+} */ */
 
-.generatedPoemButton{
-  width : 130px;
-  height : 45px;
-  text-align: center;
-  padding : 5px;
-}
-
-.formButton:focus,
-.formButton:active {
-  /* Réinitialisez ici les styles par défaut des boutons lorsqu'ils sont cliqués ou actifs */
-  outline: none;
-  box-shadow: none!important;
-}
-
-.generatedPoemButtonsDiv {
-  display: flex;
-  justify-content: space-around;
-  width : 100%;
-  margin-top : 30px;
-}
 
 #loadingTitle{
   text-align: center;
@@ -332,23 +342,37 @@ form{
 
 footer {
   height : 200px;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   width:100%!important;
   display: flex;
   margin-top : 100px;
-  border-top: 1px solid #d2d2d7;
+  border-top: 3px solid #ffcbcb;
+  /* background-color: #ffffff!important; */
+  /* background-image: url("./img/footerBackground.png");
+  background-size: contain;
+  background-repeat: no-repeat; */
 }
 
 #footerDiv{
-  width:80%;
+  width:30%;
   height : 70%;
   margin : auto;
-  border-top: 1px solid #d2d2d7;
+  border-top: 1px solid #ffcbcb;
+  border-bottom:1px solid #ffcbcb;
   display: flex;
   justify-content: space-around;
+  background-color: #ffffff!important;
 }
 
 #footerDiv ul{
   list-style: none;
   margin-top : 10px;
+  display : flex;
+  flex-direction: column;
+  margin : auto
 }
+
+.print-content {
+  text-align: left;
+}
+

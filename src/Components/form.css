@@ -1,0 +1,20 @@
+.formButton {
+    background-color: #a28089 !important;
+    color : white!important;
+
+}
+
+.formButton:focus,
+.formButton:active {
+    /* Réinitialisez ici les styles par défaut des boutons lorsqu'ils sont cliqués ou actifs */
+    background-color: #a28089 !important;
+    outline: none;
+    box-shadow: none !important;
+}
+
+.generatedPoemButtonsDiv {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 30px;
+}

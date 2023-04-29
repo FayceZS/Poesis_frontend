@@ -1,25 +1,40 @@
-import React from 'react'
-import {Nav, Navbar, Container, NavDropdown} from 'react-bootstrap';  
+import React from 'react';
+import { Nav, Navbar, Container, NavDropdown } from 'react-bootstrap';
+import logoPoesis from "../img/logoPoesis.png";
+import iconLogout from "../img/iconLogout.png";
+import ecrirePoem from "../img/ecrirePoem.png";
+import iconProfil from "../img/iconProfil.png";
+import "./Navigation.css";
 
+const Navigation = ({ isUserLoggedIn, onLogout }) => {
+  return (
+    <>
+      <header>
+        
+          <a href="/">
+            <img src={logoPoesis} />
+          </a>
+        
 
-const Navigation=()=>{
-    return (
-        <>
-            <header>
-                <h1 id='poesis'>Poesis</h1>
-                 
-                        <NavDropdown title="\/" id="basic-nav-dropdown">  
-                            <NavDropdown.Item href="/">Accueil</NavDropdown.Item>  
-                            <NavDropdown.Item href="/generate-poem">Générer un poème</NavDropdown.Item>  
-                            <NavDropdown.Item href="/logoff">Se déconnecter</NavDropdown.Item>  
-                            {/* <NavDropdown.Divider />  
-                            <NavDropdown.Item href="#action/3.4">Another Item</NavDropdown.Item>   */}
-                        </NavDropdown>  
-                       
-                    
-            </header>
-        </>
-)
-}
+        {isUserLoggedIn && (
+          <div>
+            <a href="/user-profile">
+              <img src={iconProfil} />
+              Profil
+            </a>
+            <a href="/generate-poem">
+              <img src={ecrirePoem} />
+              Poème
+            </a>
+            <a onClick={onLogout} href="/">
+              <img src={iconLogout} />
+              Deconnexion
+            </a>
+          </div>
+        )}
+      </header>
+    </>
+  );
+};
 
-export default Navigation
+export default Navigation;

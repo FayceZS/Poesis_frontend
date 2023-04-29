@@ -1,0 +1,27 @@
+#userProfileContainer{
+    padding : 50px;
+}
+
+#userProfileContainer h1{
+    font-family: 'Sacramento', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom : 20px;
+}
+
+#userProfileContainer div label{
+    font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: lighter;
+}
+
+.error-message {
+    color: white;
+    background-color: red;
+    text-align: center;
+    padding : 15px;
+}
+
+.success-message {
+    color: white;
+    background-color: green;
+    text-align: center;
+    padding : 15px;
+}
