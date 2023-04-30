@@ -72,7 +72,7 @@ function App() {
                   loggedIn && !showImage ? (
                     <UserProfile />
                   ) : (
-                    <AuthForm onUserLoggedIn={handleUserLoggedIn} />
+                    <AuthForm onLogin={handleUserLoggedIn} />
                   )
                 }
               />
