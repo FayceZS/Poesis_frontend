@@ -3,7 +3,7 @@ import './App.css';
 import PoemForm from './Components/form.js';
 import { Container } from 'react-bootstrap';
 import Navigation from './Components/Navigation';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter , Route, Routes,  } from 'react-router-dom';
 import 'animate.css';
 import Footer from './Components/footer';
 import AuthForm from './Components/authForm';
@@ -37,7 +37,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      <HashRouter>
         <Navigation isUserLoggedIn={loggedIn} onLogout={handleLogout} />
         {showImage ? (
           <Container>
@@ -80,7 +80,7 @@ function App() {
           </Fragment>
         )}
         <Footer />
-      </Router>
+      </HashRouter>
     </div>
   );
 }
