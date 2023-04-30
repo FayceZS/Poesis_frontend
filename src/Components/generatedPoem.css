@@ -35,7 +35,17 @@
     background-size: cover;
 }
 
+#imgBravo {
+    height: 32px;
+    width: 32px;
+    margin-left: 10px;
+}
 
+.bravoText {
+    font-family: 'Dosis', sans-serif;
+    background-color: #ffffff !important;
+
+}
 
 @media print {
     .print-container {
@@ -53,4 +63,38 @@
         font-weight: lighter; 
     }
 
+}
+
+@media screen and (max-width: 767px) {
+    .generatedPoemContainer {
+        padding: 20px;
+    }
+
+    .generatedPoemButton {
+        width: 120px;
+        height: 40px;
+        font-size: 14px!important;
+    }
+
+    .generatedPoemButtonsDiv{
+            display : flex;
+    }
+
+    .print-content {
+        width: 80vw;
+        padding: 20px;
+    }
+
+    .cardBackground {
+        width: 80vw !important;
+    }
+
+    #imgBravo {
+        height: 28px;
+        width: 28px;
+    }
+
+    .bravoText {
+        font-size: 14px;
+    }
 }

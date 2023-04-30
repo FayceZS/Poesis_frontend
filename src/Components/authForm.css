@@ -15,6 +15,10 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 .authForm{
     width : 70%;
     max-width: 400px;
+    border-top : 1px solid grey;
+    border-bottom : 1px solid grey;
+    padding : 15px;
+    margin-top : 30px;
 }
 
 .authForm div{
@@ -24,8 +28,9 @@ box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 .authFormTitle{
-    font-family: 'Sacramento', cursive;
-    font-weight: bold;
+    font-family: 'Roboto', cursive;
+    font-weight: light;
+    font-size: 22px;
     width : max-content;
     margin : auto;
     color : #222831;
@@ -70,5 +75,36 @@ background: #9e557c
     .authFormButtons button {
         display: block;
         margin: 0.4em auto;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .authFormDiv {
+        width: 90%;
+        margin-top: 60px;
+    }
+
+    .authForm {
+        width: 100%;
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    .authForm div {
+        flex-direction: column;
+    }
+
+    .authFormButtons {
+        flex-direction: column;
+    }
+
+    .authFormButtons button {
+        width: 150px;
+        margin: auto;
+        margin-bottom: 15px;
+    }
+
+    .authFormTitle{
+        font-size : 14px!important;
     }
 }

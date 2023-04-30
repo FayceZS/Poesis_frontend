@@ -16,14 +16,6 @@ body{
   
 }
 
-
-
-
-
-
-
-
-
 #poesis a img{
   height: 250px;
   width : 280px;
@@ -42,7 +34,7 @@ font-size: 18px;
   height : auto;
   width : 650px;
   /* border : 1px solid #b63838; */
-  background-color:  #ffffff;
+  background-color: #fbfbfd!important;
   border-radius : 20px;
   border : 1px solid #cecece;
   /* padding : 30px; */
@@ -68,26 +60,16 @@ font-size: 18px;
 .container{
   display : flex;
   flex-direction: column;
-  /* height : auto; */
-  /* margin : auto; */
-  /* padding : 20px; */
-  /* height : 80%!important; */
-  /* align-items: center; */
   padding : 20px;
   margin-top : 100px!important;
   width : 650px!important;
-  /* border : 1px solid gray; */
-  /* align-self: center; */
   box-shadow: #AC837A 0px 3px 12px;
-  /* min-height : 300px; */
-  /* align-items: center; */
   background-color: #ffffff;
 }
 
 
 
 .formCheckDiv{
-  /* margin:auto; */
   margin-left:0px;
   height : 200px;
   padding-top : 50px;
@@ -107,7 +89,6 @@ form{
 }
 
 .card-body{
-  /* height : 100%!important; */
   display: flex!important;
   flex-direction: column!important;
   justify-content: space-between;
@@ -121,7 +102,6 @@ form{
 .card-body img{
   height : 80px;
   width : 80px;
-  /* margin : auto; */
   margin-top : 10px;
   margin-bottom : 30px;
 }
@@ -138,11 +118,8 @@ form{
   flex-direction: column;
   min-height : 300px;
   align-items: stretch;
-  /* justify-content: space-between; */
   justify-content: flex-start;
   align-items: flex-start;
-  /* height : auto; */
-  /* justify-content: space-between; */
   opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
@@ -164,7 +141,6 @@ form{
 
 .form-check{
   width : max-content;
-  /* margin : auto; */
   margin-top : 10px;
   display: flex;
   align-items: center;
@@ -215,70 +191,7 @@ form{
   width : 100%;
 }
 
-#prenomBox{
-  width : 300px;
-  height : 40px;
-  font-size: 22px;
-  padding : 25px;
-  border : 2px solid #cecece;
-  border-radius: 12px;
-  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-  margin : auto;
-  margin-left : 0px;
-}
 
-.occasionChoix{
-  display: flex;
-  align-items: center;
-}
-
-.occasionChoix img{
-  width : 30px;
-  height : 30px;
-  margin : 0;
-  margin-left: 10px;
-}
-
-#prenomImg{
-  width : 32px;
-  height : 32px;
-  margin-bottom: 0px;
-  margin-top : 0px;
-  margin-left : 20px;
-}
-
-#poem{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height : max-content;
-  min-height: 516px;
-  min-height: 380px;
-}
-
-#poem .card-header{
-
-  font-size : 25px;
-  font-weight : bold;
-  text-align: center;
-  display : flex;
-  justify-content: center;
-}
-
-/* #generatedPoemContainer{
-  
-  /* min-height: 300px; */
-  /* height : auto; */
-  /* width : 400px; */
-  /* height : 563px; */
-  /* border : 1px dashed gray; */
-  /* padding : 35px; */
-  /* padding : auto; */
-/* }
-
-#generatedPoemContainer:last-child{
-  text-align: right!important;
-} */ 
 
 
 #loadingTitle{
@@ -289,51 +202,39 @@ form{
   margin-bottom : 50px;
 }
 
-#imgBravo{
-  height : 32px;
-  width:32px;
-  margin-left : 10px;
-}
 
-.bravoText{
-  font-family: 'Dosis', sans-serif;
-  background-color: #ffffff!important;
-  
-}
 
-footer {
-  height : 200px;
-  /* background-color: #ffffff; */
-  width:100%!important;
-  display: flex;
-  margin-top : 100px;
-  border-top: 3px solid #ffcbcb;
-  /* background-color: #ffffff!important; */
-  /* background-image: url("./img/footerBackground.png");
-  background-size: contain;
-  background-repeat: no-repeat; */
-}
-
-#footerDiv{
-  width:30%;
-  height : 70%;
-  margin : auto;
-  border-top: 1px solid #ffcbcb;
-  border-bottom:1px solid #ffcbcb;
-  display: flex;
-  justify-content: space-around;
-  background-color: #ffffff!important;
-}
-
-#footerDiv ul{
-  list-style: none;
-  margin-top : 10px;
-  display : flex;
-  flex-direction: column;
-  margin : auto
-}
 
 .print-content {
   text-align: left;
 }
 
+@media screen and (max-width: 768px) {
+  #formContainer {
+    margin-top: 30px;
+    width: 90%;
+  }
+
+  .container {
+    margin-top: 50px !important;
+    width: 100% !important;
+  }
+
+  .formController {
+    min-height: auto;
+  }
+
+  .form-control {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .btn {
+    margin-bottom: 15px;
+  }
+}
