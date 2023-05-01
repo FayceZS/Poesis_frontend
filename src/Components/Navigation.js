@@ -3,6 +3,7 @@ import logoPoesis from "../img/logoPoesis.png";
 import iconLogout from "../img/iconLogout.png";
 import ecrirePoem from "../img/ecrirePoem.png";
 import iconProfil from "../img/iconProfil.png";
+import { Link } from 'react-router-dom';
 import "./Navigation.css";
 
 const Navigation = ({ isUserLoggedIn, onLogout }) => {
@@ -10,25 +11,25 @@ const Navigation = ({ isUserLoggedIn, onLogout }) => {
     <>
       <header>
         
-          <a href="/">
+          <Link href="/">
             <img src={logoPoesis} alt="logoPoesis"/>
-          </a>
+          </Link>
         
 
         {isUserLoggedIn && (
           <div>
-            <a href="/user-profile">
+            <Link to="/user-profile">
               <img src={iconProfil} alt="icone profil" />
               Profil
-            </a>
-            <a href="/generate-poem">
+            </Link>
+            <Link to="/generate-poem">
               <img src={ecrirePoem} alt="ecrire un poème"/>
               Poème
-            </a>
-            <a onClick={onLogout} href="/">
+            </Link>
+            <Link onClick={onLogout} to="/">
               <img src={iconLogout} alt="deconnexion"/>
               Deconnexion
-            </a>
+            </Link>
           </div>
         )}
       </header>

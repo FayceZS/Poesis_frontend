@@ -1,9 +1,9 @@
-import React, { useState, useEffect, Fragment } from 'react'; 
+import React, { useState, useEffect, Fragment } from 'react';
 import './App.css';
 import PoemForm from './Components/form.js';
 import { Container } from 'react-bootstrap';
 import Navigation from './Components/Navigation';
-import { HashRouter , Route, Routes,  } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import 'animate.css';
 import Footer from './Components/footer';
 import AuthForm from './Components/authForm';
@@ -53,22 +53,23 @@ function App() {
           </Container>
         ) : (
           <Fragment>
-            <Routes>
+            <Switch>
               <Route
+                exact
                 path="/"
-                element={
+                render={() =>
                   loggedIn && !showImage ? <PoemForm /> : <AuthForm onLogin={handleUserLoggedIn} />
                 }
               />
               <Route
                 path="/generate-poem"
-                element={
+                render={() =>
                   loggedIn && !showImage ? <PoemForm /> : <AuthForm onLogin={handleUserLoggedIn} />
                 }
               />
               <Route
                 path="/user-profile"
-                element={
+                render={() =>
                   loggedIn && !showImage ? (
                     <UserProfile />
                   ) : (
@@ -76,7 +77,7 @@ function App() {
                   )
                 }
               />
-            </Routes>
+            </Switch>
           </Fragment>
         )}
         <Footer />
