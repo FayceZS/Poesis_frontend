@@ -13,17 +13,17 @@ const HomePage = ({ loggedIn }) => {
   return (
     <div id="homePage">
       <h1 id="homePageH1">Bienvenue sur Poesis !</h1>
-      <p>
-        L'application permettant de générer un poème personnalisé inspiré d'un grand auteur
-        en un temps record.
-      </p>
+      
       {showForm ? (
         <AuthForm  onLogin={loggedIn} />
       ) : (
         <Link to="/generate-poem">
           <button>Générer mes poèmes</button>
         </Link>
-      )}
+          )}
+        <p>
+       Découvrez des poèmes sur mesure, inspirés par les plus grands auteurs, créés en un clin d'œil grâce à notre application innovante.
+      </p>
     </div>
   );
 };
