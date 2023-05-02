@@ -1,0 +1,44 @@
+#homePage {
+    width: 90%;
+    background-color: #ffffff;
+    min-height: 750px;
+    height: auto;
+    margin: auto;
+    margin-top : 50px;
+    margin-bottom: 50px;
+    /* margin-top: 80px; */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-image: url(../img/backgroundHome.svg);
+    padding : 30px;
+    border-radius: 15px;
+    background-size: cover;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
+}
+
+#homePageH1{
+    font-family: Montserrat, Times, serif;
+    text-align: left;
+    font-size: 50px;
+    margin-top: 25px;
+    font-weight: bolder;
+    color: #a50552;
+}
+
+#homePage p {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 25px;
+    width : 250px;
+    word-wrap: break-word;
+    margin : auto;
+    margin-top: 0;
+    margin-bottom: 15px;
+    margin-left : 15px;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
+    padding : 20px;
+    
+}
+

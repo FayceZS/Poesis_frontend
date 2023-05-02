@@ -4,13 +4,16 @@ body{
   background: #F9F7F3;
 }
 
+
 .App{
   height : 100%;
   width : 100%;
   display: flex;
   flex-direction: column;
   align-items: space-between;
-  background-image: url("./img/layered-waves-haikei.svg");
+  /* background-image: url("./img/layered-waves-haikei.svg"); */
+
+  background-image: url("./img/backgroundTest.svg");
   background-size:cover;
   background-repeat: no-repeat;
   
@@ -62,6 +65,7 @@ font-size: 18px;
   flex-direction: column;
   padding : 20px;
   margin-top : 100px!important;
+  margin-bottom: 100px;
   width : 650px!important;
   box-shadow: #AC837A 0px 3px 12px;
   background-color: #ffffff;

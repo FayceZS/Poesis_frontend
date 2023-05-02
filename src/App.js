@@ -8,12 +8,14 @@ import 'animate.css';
 import Footer from './Components/footer';
 import AuthForm from './Components/authForm';
 import UserProfile from './Components/UserProfile';
+import HomePage from './Components/homePage.js';
 import introPoesisVideo from "./img/Poesis.mp4";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(localStorage.getItem('authToken') !== null);
   const [showImage, setShowImage] = useState(false);
 
+  
   const handleUserLoggedIn = () => {
     setLoggedIn(true);
     setShowImage(true);
@@ -54,30 +56,29 @@ function App() {
         ) : (
           <Fragment>
             <Switch>
-              <Route
-                exact
-                path="/"
-                render={() =>
-                  loggedIn && !showImage ? <PoemForm /> : <AuthForm onLogin={handleUserLoggedIn} />
-                }
-              />
-              <Route
-                path="/generate-poem"
-                render={() =>
-                  loggedIn && !showImage ? <PoemForm /> : <AuthForm onLogin={handleUserLoggedIn} />
-                }
-              />
-              <Route
-                path="/user-profile"
-                render={() =>
-                  loggedIn && !showImage ? (
-                    <UserProfile />
-                  ) : (
-                    <AuthForm onLogin={handleUserLoggedIn} />
-                  )
-                }
-              />
-            </Switch>
+  <Route
+    exact
+    path="/"
+    render={() => <HomePage loggedIn={loggedIn} />}
+  />
+  <Route
+    path="/generate-poem"
+    render={() =>
+      loggedIn && !showImage ? <PoemForm /> : <AuthForm onLogin={handleUserLoggedIn} />
+    }
+  />
+  <Route
+    path="/user-profile"
+    render={() =>
+      loggedIn && !showImage ? (
+        <UserProfile />
+      ) : (
+        <AuthForm onLogin={handleUserLoggedIn} />
+      )
+    }
+  />
+</Switch>
+
           </Fragment>
         )}
         <Footer />

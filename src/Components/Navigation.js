@@ -11,7 +11,7 @@ const Navigation = ({ isUserLoggedIn, onLogout }) => {
     <>
       <header>
         
-          <Link href="/">
+          <Link to="/">
             <img src={logoPoesis} alt="logoPoesis"/>
           </Link>
         
