@@ -6,7 +6,7 @@ import loadingLogo from "../img/logoLoading.svg";
 function BootstrapSpinner() {
   return (
     <>
-        <div id="loadingDiv">
+        {/* <div id="loadingDiv"> */}
         {/* <h3 id="loadingTitle" className='animate__animated animate__flipInY '>Votre poème est en cours d'écriture.....</h3> */}
        
             {/* <video
@@ -22,7 +22,7 @@ function BootstrapSpinner() {
 
       
       
-      </div>
+      {/* </div> */}
       {/* <Button variant="primary" disabled>
         <Spinner
           as="span"
