@@ -13,6 +13,7 @@ function GeneratedPoemTest({ poem, poemDisplay, setStep, resetStates }) {
 const fetchUserBackgroundImage = async () => {
   try {
     const token = localStorage.getItem('authToken');
+    
     const response = await axios.get(`${backendUrl}/auth/profile`, {
       headers: {
         'Authorization': `Bearer ${token}`,

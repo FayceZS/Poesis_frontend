@@ -1,14 +1,15 @@
 
 import loadingPoem from "../img/loadingPoem.mp4";
 import "./bootstrapSpinner.css";
+import loadingLogo from "../img/logoLoading.svg";
 
 function BootstrapSpinner() {
   return (
     <>
-        <div className='loadingDiv'>
-        <h3 id="loadingTitle" className='animate__animated animate__flipInY '>Votre poème est en cours d'écriture.....</h3>
+        <div id="loadingDiv">
+        {/* <h3 id="loadingTitle" className='animate__animated animate__flipInY '>Votre poème est en cours d'écriture.....</h3> */}
        
-            <video
+            {/* <video
               src={loadingPoem}
               alt="Connexion réussie"
               id="loadingPoem"
@@ -16,7 +17,10 @@ function BootstrapSpinner() {
               autoPlay
               muted
               loop
-            />
+            /> */}
+        <img src={loadingLogo} id="loadingLogo"/>
+
+      
       
       </div>
       {/* <Button variant="primary" disabled>

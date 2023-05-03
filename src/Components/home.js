@@ -9,7 +9,7 @@ const HomePage = () => {
 
   return (
     <div id="homePage">
-      <h1 id="homePageH1">Poesis</h1>
+      {/* <h1 id="homePageH1">Poesis</h1> */}
       
       {isLoggedIn ? (
         <PoemForm />

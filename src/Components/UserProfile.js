@@ -34,6 +34,7 @@ const [successMessage, setSuccessMessage] = useState('');
   const fetchProfile = async () => {
     try {
       const token = localStorage.getItem('authToken');
+      console.log('Token : ', token);
       const response = await axios.get(`${backendUrl}/auth/profile`, {
         headers: {
           'Authorization': `Bearer ${token}`

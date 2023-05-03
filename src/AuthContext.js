@@ -11,23 +11,24 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('authToken');
     if (token) {
-      axios
-        .get(`${backendUrl}/auth/me`, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .then((response) => {
-          console.log(response.data);
-          setIsLoggedIn(true);
-        })
-        .catch((error) => {
-          console.error(error);
-          setIsLoggedIn(false);
-        });
+    //   axios
+    //     .get(`${backendUrl}/auth/me`, {
+    //       headers: { Authorization: `Bearer ${token}` },
+    //     })
+    //     .then((response) => {
+    //       console.log(response.data);
+    //       setIsLoggedIn(true);
+    //     })
+    //     .catch((error) => {
+    //       console.error(error);
+    //       setIsLoggedIn(false);
+    //     });
+        setIsLoggedIn(true);
     }
   }, []);
 
-  const login = (token) => {
-    localStorage.setItem('authToken', token);
+  const login = () => {
+   
     setIsLoggedIn(true);
   };
 
