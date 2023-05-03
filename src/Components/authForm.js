@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import "./authForm.css";
+import { AuthContext } from "../AuthContext";
+
 const backendUrl = "https://pure-stream-14786.herokuapp.com";
 
-const AuthForm = ({ onLogin }) => {
+const AuthForm = () => {
   const [showLoginForm, setShowLoginForm] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,7 +16,8 @@ const AuthForm = ({ onLogin }) => {
   const [postalCode, setPostalCode] = useState('');
   const [country, setCountry] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  
+
+  const { login } = useContext(AuthContext);
 
   const handleFormSwitch = () => {
     setShowLoginForm(!showLoginForm);
@@ -29,8 +32,8 @@ const AuthForm = ({ onLogin }) => {
         console.log(response.data);
         const token = response.data.token;
         localStorage.setItem('authToken', token);
-        
-        onLogin(); // Appeler la fonction de rappel onLogin
+
+        login(); // Utiliser la méthode login du contexte
       } else {
        const response = await axios.post(`${backendUrl}/auth/signup`, { email, password, numberSiret, address: { street, city, state, postalCode, country } });
 

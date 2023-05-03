@@ -18,12 +18,12 @@
 }
 
 #homePageH1{
-    font-family: Montserrat, Times, serif;
+    font-family: "Sacramento", Times, serif;
     text-align: left;
     font-size: 50px;
     margin-top: 25px;
-    font-weight: bolder;
-    color: #a50552;
+    font-weight: lighter;
+    color: black;
 }
 
 #homePage p {
