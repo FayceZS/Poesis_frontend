@@ -87,7 +87,7 @@
     }
 
     .cardBackground {
-        width: 80vw !important;
+        width: auto !important;
     }
 
     #imgBravo {
