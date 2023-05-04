@@ -115,6 +115,7 @@ form{
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   margin-bottom: 15px;
+  color : #222;
 }
 
 .formController {
@@ -164,6 +165,7 @@ form{
 .form-check-label{
   font-size : 25px;
   font-family: 'Open Sans', sans-serif;
+  color : #222;
   
 }
 
@@ -181,7 +183,7 @@ form{
   background-color: white;
   border-radius : 10px;
   padding : 20px;
-  color : black;
+  color : #222;
   font-family: 'Open Sans', sans-serif;
   font-weight: bolder;
   cursor: pointer;

@@ -23,7 +23,7 @@ const Navigation = () => {
         {isLoggedIn && (
           <div>
             <Link to="/user-profile">
-              <img src={iconProfil} alt="icone profil" />
+              <img src={iconProfil} alt="icone profil" id="iconProfil" />
               Profil
             </Link>
             <Link to="/generate-poem">
