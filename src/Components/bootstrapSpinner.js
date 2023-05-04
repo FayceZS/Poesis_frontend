@@ -18,6 +18,9 @@ function BootstrapSpinner() {
               muted
               loop
             /> */}
+      
+
+
         <img src={loadingLogo} id="loadingLogo"/>
 
       

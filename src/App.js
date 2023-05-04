@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext,useState,useEffect } from 'react';
 import './App.css';
 import PoemForm from './Components/form.js';
 import Navigation from './Components/Navigation';
@@ -12,9 +12,16 @@ import { AuthContext } from './AuthContext';
 
 function App() {
   const { isLoggedIn } = useContext(AuthContext);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    window.onload = () => {
+      setIsLoaded(true);
+    };
+  }, []);
 
   return (
-    <div className="App">
+    <div className="App" style={isLoaded ? {} : { display: 'none' }}>
       <HashRouter>
         <Navigation />
         <Switch>
