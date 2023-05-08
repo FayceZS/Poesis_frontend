@@ -95,12 +95,12 @@ const PoemForm = () => {
     if (index > 0 && index % 4 === 0) {
       return (
         <React.Fragment key={index}>
-          <div style={{ marginTop: '1rem' }}>{line}</div>
+          <div className="poemLine" style={{ marginTop: '1rem' }}>{line}</div>
         </React.Fragment>
       );
     } else {
       return (
-        <div key={index}>
+        <div key={index} className="poemLine">
           {line}
         </div>
       );

@@ -4,17 +4,29 @@
 
 .style-controls{
     margin-top: 15px;
+    display: flex;
+    height : auto;
+    justify-content: space-between;
     
 }
 
-.style-controls label{
+.style-controls div{
+    display : flex;
+    flex-direction: column;
+}
+
+.style-controls div label{
     margin-right : 10px;
 }
 
-.style-controls input{
-    width : 50px;
+.style-controls div input{
+    max-width : 100px;
     padding-left : 12px;
     padding-right : 12px;
+}
+
+.style-controls div select{
+        max-width: 100px;
 }
 
 .generatedPoemContainer {
@@ -129,4 +141,15 @@
     .bravoText {
         font-size: 14px;
     }
+
+    .style-controls{
+            flex-direction: column;
+        }
+    .style-controls div{
+                    justify-content: space-between;
+                }
+
+    .style-controls div input{
+            width : 60px;
+        }
 }
