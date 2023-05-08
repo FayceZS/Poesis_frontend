@@ -6,9 +6,10 @@ const backendUrl = "https://pure-stream-14786.herokuapp.com";
 
 const UserProfile = () => {
   const [email, setEmail] = useState('');
-    const [password] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
-const [successMessage, setSuccessMessage] = useState('');
+  const [password] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [backgroundImageUrl, setBackgroundImageUrl] = useState(null);
   const [address, setAddress] = useState({
     street: '',
     city: '',
@@ -31,23 +32,24 @@ const [successMessage, setSuccessMessage] = useState('');
     }
   };
 
-  const fetchProfile = async () => {
-    try {
-      const token = localStorage.getItem('authToken');
-      console.log('Token : ', token);
-      const response = await axios.get(`${backendUrl}/auth/profile`, {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
+ const fetchProfile = async () => {
+  try {
+    const token = localStorage.getItem('authToken');
+    console.log('Token : ', token);
+    const response = await axios.get(`${backendUrl}/auth/profile`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
 
-      setEmail(response.data.email);
-      setAddress(response.data.address);
-    } catch (error) {
-      console.error(error);
-      // Gérer les erreurs ici
-    }
-  };
+    setEmail(response.data.email);
+    setAddress(response.data.address);
+    setBackgroundImageUrl(response.data.backgroundImage); // Ajout de cette ligne pour stocker l'URL de l'image d'arrière-plan
+  } catch (error) {
+    console.error(error);
+    // Gérer les erreurs ici
+  }
+};
 
   useEffect(() => {
     fetchProfile();
@@ -62,6 +64,9 @@ const [successMessage, setSuccessMessage] = useState('');
     formData.append("password", password);
     formData.append("address", JSON.stringify(address));
 
+    // Ajout d'un log pour vérifier si le code atteint cette partie
+    console.log('Envoi de la requête PUT');
+
     const response = await axios.put(
       `${backendUrl}/auth/profile`,
       formData,
@@ -72,6 +77,12 @@ const [successMessage, setSuccessMessage] = useState('');
         },
       }
     );
+
+    // Ajout d'un log pour vérifier si la requête PUT a réussi
+    console.log('Réponse de la requête PUT:', response);
+
+    // Appel de fetchProfile pour mettre à jour les données affichées
+    fetchProfile();
 
     if (backgroundImage) {
       const imageFormData = new FormData();
@@ -88,15 +99,17 @@ const [successMessage, setSuccessMessage] = useState('');
         }
       );
       console.log(imageResponse.data);
+      fetchProfile();
     }
 
-      console.log(response.data);
-      setSuccessMessage('Profil mis à jour avec succès.');
+    setSuccessMessage('Profil mis à jour avec succès.');
+
   } catch (error) {
       console.error(error);
-      setErrorMessage("Une erreur s'est produite lors de la mise à jour du profil."); // Ajoutez cette ligne
+      setErrorMessage("Une erreur s'est produite lors de la mise à jour du profil.");
   }
 };
+
 
   return (
     <Container id="userProfileContainer">
@@ -130,9 +143,13 @@ const [successMessage, setSuccessMessage] = useState('');
           <Form.Label>Image de fond:</Form.Label>
           <Form.Control type="file" accept="image/*" onChange={handleImageUpload} />
         </Form.Group>
-              {/* Les autres champs du formulaire */}
+        {/* Les autres champs du formulaire */}
+        <div className='userProfileImg' style={{
+          backgroundImage: `url(${backgroundImageUrl})` ,
+        }}></div>
               {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Ajoutez cette ligne */}
-    {successMessage && <p className="success-message">{successMessage}</p>} {/* Ajoutez cette ligne */}
+        {successMessage && <p className="success-message">{successMessage}</p>} {/* Ajoutez cette ligne */}
+        
         <Button variant="primary" type="submit">
           Mettre à jour
         </Button>

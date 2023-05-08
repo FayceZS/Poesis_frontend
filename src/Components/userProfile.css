@@ -12,6 +12,14 @@
     font-weight: lighter;
 }
 
+.userProfileImg{
+    margin : auto;
+    margin-bottom: 30px;
+    height: 600px;
+    width : 450px;
+    background-size: cover;
+}
+
 .error-message {
     color: white;
     background-color: red;

@@ -9,6 +9,7 @@ const backendUrl = "https://pure-stream-14786.herokuapp.com";
 function GeneratedPoemTest({ poem, poemDisplay, setStep, resetStates }) {
   const poemRef = useRef();
   const [backgroundImage, setBackgroundImage] = useState(null);
+  const [padding, setPadding] = useState('40');
 
 const fetchUserBackgroundImage = async () => {
   try {
@@ -39,11 +40,20 @@ const fetchUserBackgroundImage = async () => {
             Bravo ! voici votre chef d'oeuvre{' '}
             <img src={smileyAmoureux} id="imgBravo" alt="smiley coeur"/>
           </Card.Header>
+          <div className="style-controls">
+  <label htmlFor="commonPadding">Padding : </label>
+  <input
+    id="commonPadding"
+    type="number"
+    value={padding}
+    onChange={(e) => setPadding(e.target.value)}
+  />
+</div>
           <Card.Body id="generatedPoemContainer" className="print-content">
             <div
               className="print-content cardBackground"
               ref={poemRef}
-              style={{ backgroundImage: `url(${backgroundImage})` }}
+              style={{ backgroundImage: `url(${backgroundImage})`,padding : `${padding}px` }}
             >
               
               {poemDisplay(poem)}
