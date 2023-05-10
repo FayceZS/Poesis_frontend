@@ -12,6 +12,7 @@ import amis from "../img/amis.png";
 import baby from "../img/baby.png";
 import man from "../img/man.png"
 import woman from "../img/woman.png"
+import mom from "../img/mom.png"
 const backendUrl = "https://pure-stream-14786.herokuapp.com/generate-poem";
 
 // import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -255,7 +256,19 @@ const PoemForm = () => {
                     value="de naissance"
                     className="animate__animated animate__backInRight"
         />
-        <img src={baby} className="animate__animated animate__backInRight" alt="naissance"/>
+                  <img src={baby} className="animate__animated animate__backInRight" alt="naissance" />
+                </div>
+                <div className="occasionChoix">
+                  <Form.Check
+                type="radio"
+                id="option6"
+                name="options"
+                label="Fête des mères"
+                onChange={(e) => setOccasion(e.target.value)}
+                    value="pour la fête des mères"
+                    className="animate__animated animate__backInRight"
+        />
+        <img src={mom} className="animate__animated animate__backInRight" alt="fete des mères"/>
         </div>
               </Form.Group>
             )}

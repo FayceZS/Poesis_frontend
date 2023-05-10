@@ -87,6 +87,12 @@
 }
 
 @media print {
+
+    @page {
+            margin: 1cm;
+            width: 105mm !important;
+                min-height: 148mm !important;
+        }
     .print-container {
         width: 105mm !important;
         min-height: 148mm !important;
