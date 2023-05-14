@@ -13,11 +13,16 @@
 }
 
 .userProfileImg{
-    margin : auto;
+    /* margin : auto; */
     margin-bottom: 30px;
-    height: 600px;
-    width : 450px;
-    background-size: cover;
+    height: 250px;
+    width : 170px;
+    background-size: contain;
+    background-position: center;
+        /* Cette propriété centre l'image dans la div */
+        background-repeat: no-repeat;
+        /* Cette propriété évite que l'image ne se répète */
+        border : 1px solid black;
 }
 
 .error-message {

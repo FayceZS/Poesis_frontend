@@ -140,16 +140,17 @@ const UserProfile = () => {
           <Form.Control type="text" value={address.country} onChange={(e) => handleAddressChange('country', e.target.value)} />
         </Form.Group>     
         <Form.Group controlId="formBackgroundImage">
-          <Form.Label>Image de fond:</Form.Label>
-          <Form.Control type="file" accept="image/*" onChange={handleImageUpload} />
-        </Form.Group>
+          <Form.Label>Carte amour :</Form.Label>
+          
+        
         {/* Les autres champs du formulaire */}
         <div className='userProfileImg' style={{
           backgroundImage: `url(${backgroundImageUrl})` ,
         }}></div>
               {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Ajoutez cette ligne */}
         {successMessage && <p className="success-message">{successMessage}</p>} {/* Ajoutez cette ligne */}
-        
+        <Form.Control type="file" accept="image/*" onChange={handleImageUpload} />
+        </Form.Group>
         <Button variant="primary" type="submit">
           Mettre à jour
         </Button>

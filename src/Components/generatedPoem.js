@@ -9,11 +9,11 @@ const backendUrl = "https://pure-stream-14786.herokuapp.com";
 function GeneratedPoemTest({ poem, poemDisplay, setStep, resetStates }) {
   const poemRef = useRef();
   const [backgroundImage, setBackgroundImage] = useState(null);
-  const [padding, setPadding] = useState('40');
+  const [padding, setPadding] = useState('20');
   const [fontColor, setFontColor] = useState('#222');
-  const [fontWeight, setFontWeight] = useState('500');
-  const [fontFamily, setFontFamily] = useState('Lato');
-  const [fontSize, setFontSize] = useState('14');
+  const [fontWeight, setFontWeight] = useState('400');
+  const [fontFamily, setFontFamily] = useState('Sacramento');
+  const [fontSize, setFontSize] = useState('20');
 
 
 const fetchUserBackgroundImage = async () => {

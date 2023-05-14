@@ -54,7 +54,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
-    padding: 40px;
+    padding: 20px;
     page-break-inside: avoid;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .cardBackground div{
-    font-family: 'Lato','Times New Roman', Times, serif;
+    font-family: 'Sacramento','Times New Roman', Times, serif;
     font-weight : 500;
 }
 
