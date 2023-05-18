@@ -6,17 +6,22 @@ import './generatedPoem.css';
 import axios from 'axios';
 const backendUrl = "https://pure-stream-14786.herokuapp.com";
 
-function GeneratedPoemTest({ poem, poemDisplay, setStep, resetStates }) {
+function GeneratedPoemTest({ poem, occasion, poemDisplay, setStep, resetStates }) {
+  
+  console.log("Au début de GeneratedPoemTest, occasion est: ", occasion);
   const poemRef = useRef();
-  const [backgroundImage, setBackgroundImage] = useState(null);
+  const occasionRef = useRef(occasion);
+  const [backgroundImage, setBackgroundImage] = useState('');
+  const [loading, setLoading] = useState(false);
   const [padding, setPadding] = useState('20');
   const [fontColor, setFontColor] = useState('#222');
   const [fontWeight, setFontWeight] = useState('400');
   const [fontFamily, setFontFamily] = useState('Sacramento');
   const [fontSize, setFontSize] = useState('20');
-
+  
 
 const fetchUserBackgroundImage = async () => {
+  console.log("Au début de fetchUserBackgroundImage, occasion est: ", occasionRef.current);
   try {
     const token = localStorage.getItem('authToken');
     
@@ -26,24 +31,92 @@ const fetchUserBackgroundImage = async () => {
       },
     });
     console.log(response.data);
-    // const imageUrlWithoutUploads = response.data.backgroundImage;
-    setBackgroundImage(`${response.data.backgroundImage}`); // Chargez l'image directement
+    
+    if (occasionRef.current === "d'amour" && occasionRef.current.length > 1) {
+      
+      setBackgroundImage(response.data.backgroundImageAmour);
+      
+        setLoading(false);
+      
+        } else if (occasionRef.current === "pour un mariage") {
+            setBackgroundImage(response.data.backgroundImageMariage);
+            setLoading(false);
+        } else if (occasionRef.current === "d'anniversaire") {
+            setBackgroundImage(response.data.backgroundImageAnniversaire);
+            setLoading(false);
+        } else if (occasionRef.current === "d'amitié") {
+            setBackgroundImage(response.data.backgroundImageAmitie);
+           setLoading(false);
+      } else if (occasionRef.current === "de naissance") {
+        
+            setBackgroundImage(response.data.backgroundImageNaissance);
+            setLoading(false);
+        } else if (occasionRef.current === "pour la fête des mères") {
+        // setBackgroundImage(response.data.backgroundImageFeteDesMeres);
+      setBackgroundImage(response.data.backgroundImageFeteDesMeres);
+      setLoading(false);
+    } else {
+      
+      setLoading(false);
+      console.log("Pas d'occasion")
+      }
+    
+    
   } catch (error) {
+    console.log("Erreur");
     console.error(error);
+    setLoading(false);
+    // Ici, la gestion d'erreur semble incorrecte, car on ne peut pas utiliser une variable qui n'a pas été définie en cas d'erreur
+    // Vous pourriez définir une image par défaut en cas d'erreur
+    // setBackgroundImage('url_de_votre_image_par_defaut');
   }
-  };
+};
+
+  
+
+  useEffect(() => {
+  if (occasionRef.current) {
+    fetchUserBackgroundImage();
+  }
+}, []);
   
   const style = {
   color: fontColor,
   fontWeight: fontWeight,
     fontSize: `${fontSize}px`,
   fontFamily: fontFamily
+  };
+  
+ const updateCredits = async () => {
+  try {
+    const token = localStorage.getItem('authToken');
+    
+    // Récupérez d'abord le profil de l'utilisateur pour obtenir le nombre actuel de crédits
+    const response = await axios.get(`${backendUrl}/auth/profile`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+    });
+
+
+    // Soustrayez 1 du nombre actuel de crédits
+    const updatedCredits = response.data.credits - 1;
+
+    // Mettez à jour le profil avec les nouveaux crédits
+    await axios.put(`${backendUrl}/auth/profile`, { credits: updatedCredits }, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+    });
+
+    // Vous pouvez ajouter d'autres actions à effectuer après la mise à jour des crédits
+    // Par exemple, recharger la page ou mettre à jour l'affichage des crédits sur l'interface utilisateur
+
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-
-  useEffect(() => {
-    fetchUserBackgroundImage();
-  }, []);
 
   useEffect(() => {
   const poemLines = document.querySelectorAll('.poemLine');
@@ -54,6 +127,7 @@ const fetchUserBackgroundImage = async () => {
 
 
   return (
+    loading ? null :
     <>
       <div className="print-container">
         <Card className="generatedPoemContainer print-card">
@@ -151,8 +225,10 @@ const fetchUserBackgroundImage = async () => {
                 >
                   Imprimer
                 </Button>
+                
               )}
               content={() => poemRef.current}
+              onBeforePrint={updateCredits}
             />
           </div>
         </Card>

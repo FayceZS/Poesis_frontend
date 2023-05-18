@@ -27,6 +27,8 @@ const PoemForm = () => {
   const [poem, setPoem] = useState("");
   const [signataire, setSignataire] = useState("");
   const [loadingPage, setloadingPage] = useState(false);
+  const [occasionToUse, setOccasionToUse] = useState('');
+
 
  useEffect(() => {
       console.log(loadingPage);
@@ -76,6 +78,7 @@ const PoemForm = () => {
    // Appeler fetchPoem avec le prompt construit
   fetchPoem(prompt);
   // Réinitialisez les états du formulaire
+  setOccasionToUse(occasion);
   resetStates();
 };
 
@@ -119,7 +122,9 @@ const PoemForm = () => {
   //     console.log(isloading);
   //   }
   // }
-
+useEffect(() => {
+  console.log('Occasion changed: ', occasion);
+}, [occasion]);
   return (
     <Container>
       <Form onSubmit={handleSubmit} style={step === 5 ? { display: "none" } : {}}>
@@ -357,6 +362,7 @@ const PoemForm = () => {
           poem={poem}
           setStep={setStep}
           resetStates={resetStates}
+          occasion={occasionToUse}
               />
             
 

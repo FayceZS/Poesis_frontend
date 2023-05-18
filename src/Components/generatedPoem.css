@@ -66,6 +66,7 @@
     width:auto;
     height:auto;
     background-size: cover!important;
+    border : 1px solid black;
 }
 
 .cardBackground div{
@@ -109,6 +110,10 @@
         color : black;
         /* font-weight: 500; */
         
+    }
+
+    .cardBackground{
+        border : none;
     }
 
 }

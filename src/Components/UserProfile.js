@@ -9,7 +9,18 @@ const UserProfile = () => {
   const [password] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const [backgroundImageUrl, setBackgroundImageUrl] = useState(null);
+  const [backgroundImageAmour, setBackgroundImageAmour] = useState(null);
+  const [backgroundImageMariage, setBackgroundImageMariage] = useState(null);
+  const [backgroundImageAnniversaire, setBackgroundImageAnniversaire] = useState(null);
+  const [backgroundImageAmitie, setBackgroundImageAmitie] = useState(null);
+  const [backgroundImageNaissance, setBackgroundImageNaissance] = useState(null);
+  const [backgroundImageFeteDesMeres, setBackgroundImageFeteDesMeres] = useState(null);
+   const [newBackgroundImageAmour, setNewBackgroundImageAmour] = useState(null);
+  const [newBackgroundImageMariage, setNewBackgroundImageMariage] = useState(null);
+  const [newBackgroundImageAnniversaire, setNewBackgroundImageAnniversaire] = useState(null);
+  const [newBackgroundImageAmitie, setNewBackgroundImageAmitie] = useState(null);
+  const [newBackgroundImageNaissance, setNewBackgroundImageNaissance] = useState(null);
+  const [newBackgroundImageFeteDesMeres, setNewBackgroundImageFeteDesMeres] = useState(null);
   const [address, setAddress] = useState({
     street: '',
     city: '',
@@ -17,7 +28,6 @@ const UserProfile = () => {
     postalCode: '',
     country: ''
   });
-  const [backgroundImage, setBackgroundImage] = useState(null);
 
   const handleAddressChange = (field, value) => {
     setAddress(prevAddress => ({
@@ -26,92 +36,146 @@ const UserProfile = () => {
     }));
   };
 
-  const handleImageUpload = (e) => {
+  const handleImageUploadAmour = (e) => {
     if (e.target.files && e.target.files[0]) {
-      setBackgroundImage(e.target.files[0]);
+      setNewBackgroundImageAmour(e.target.files[0]);
     }
   };
 
- const fetchProfile = async () => {
-  try {
-    const token = localStorage.getItem('authToken');
-    console.log('Token : ', token);
-    const response = await axios.get(`${backendUrl}/auth/profile`, {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    });
+  const handleImageUploadMariage = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setNewBackgroundImageMariage(e.target.files[0]);
+    }
+  };
 
-    setEmail(response.data.email);
-    setAddress(response.data.address);
-    setBackgroundImageUrl(response.data.backgroundImage); // Ajout de cette ligne pour stocker l'URL de l'image d'arrière-plan
-  } catch (error) {
-    console.error(error);
-    // Gérer les erreurs ici
-  }
-};
+  const handleImageUploadAnniversaire = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setNewBackgroundImageAnniversaire(e.target.files[0]);
+    }
+  };
+
+  const handleImageUploadAmitie = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setNewBackgroundImageAmitie(e.target.files[0]);
+    }
+  };
+
+  const handleImageUploadNaissance = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setNewBackgroundImageNaissance(e.target.files[0]);
+    }
+  };
+
+  const handleImageUploadFeteDesMeres = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setNewBackgroundImageFeteDesMeres(e.target.files[0]);
+    }
+  };
+
+  const fetchProfile = async () => {
+    try {
+      const token = localStorage.getItem('authToken');
+      const response = await axios.get(`${backendUrl}/auth/profile`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      setEmail(response.data.email);
+      setAddress(response.data.address);
+      setBackgroundImageAmour(response.data.backgroundImageAmour);
+      setBackgroundImageMariage(response.data.backgroundImageMariage);
+      setBackgroundImageAnniversaire(response.data.backgroundImageAnniversaire);
+      setBackgroundImageAmitie(response.data.backgroundImageAmitie);
+      setBackgroundImageNaissance(response.data.backgroundImageNaissance);
+      setBackgroundImageFeteDesMeres(response.data.backgroundImageFeteDesMeres);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     fetchProfile();
   }, []);
 
-  const handleSubmit = async (e) => {
-  e.preventDefault();
-  try {
-    const token = localStorage.getItem('authToken');
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
-    formData.append("address", JSON.stringify(address));
-
-    // Ajout d'un log pour vérifier si le code atteint cette partie
-    console.log('Envoi de la requête PUT');
-
-    const response = await axios.put(
-      `${backendUrl}/auth/profile`,
-      formData,
-      {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'multipart/form-data',
-        },
-      }
-    );
-
-    // Ajout d'un log pour vérifier si la requête PUT a réussi
-    console.log('Réponse de la requête PUT:', response);
-
-    // Appel de fetchProfile pour mettre à jour les données affichées
-    fetchProfile();
-
-    if (backgroundImage) {
-      const imageFormData = new FormData();
-      imageFormData.append('backgroundImage', backgroundImage);
-
-      const imageResponse = await axios.post(
-        `${backendUrl}/auth/profile/upload`,
-        imageFormData,
-        {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'multipart/form-data',
-          },
-        }
-      );
-      console.log(imageResponse.data);
-      fetchProfile();
+ const uploadImage = async (file) => {
+  const formData = new FormData();
+  formData.append('file', file);
+   console.log(formData.get('file'));
+  const response = await axios.post(`${backendUrl}/auth/profile/upload`, formData, {
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
+      // 'Content-Type': 'multipart/form-data'
     }
-
-    setSuccessMessage('Profil mis à jour avec succès.');
-
-  } catch (error) {
-      console.error(error);
-      setErrorMessage("Une erreur s'est produite lors de la mise à jour du profil.");
-  }
+  });
+  const backgroundImageField = response.data.imageUrl;
+  return backgroundImageField
 };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  return (
+    try {
+      const token = localStorage.getItem('authToken');
+
+      const profileData = {
+        email,
+        password,
+        street: address.street,
+        city: address.city,
+        state: address.state,
+        postalCode: address.postalCode,
+        country: address.country
+      };
+
+      if (newBackgroundImageAmour) {
+        const imageUrl = await uploadImage(newBackgroundImageAmour);
+        profileData.backgroundImageAmour = imageUrl;
+        setBackgroundImageAmour(imageUrl);
+      }
+      if (newBackgroundImageMariage) {
+        const imageUrl = await uploadImage(newBackgroundImageMariage);
+        profileData.backgroundImageMariage = imageUrl;
+        setBackgroundImageMariage(imageUrl);
+      }
+      if (newBackgroundImageAnniversaire) {
+        const imageUrl = await uploadImage(newBackgroundImageAnniversaire);
+        profileData.backgroundImageAnniversaire = imageUrl;
+        setBackgroundImageAnniversaire(imageUrl);
+      }
+      if (newBackgroundImageAmitie) {
+        const imageUrl = await uploadImage(newBackgroundImageAmitie);
+        profileData.backgroundImageAmitie = imageUrl;
+        setBackgroundImageAmitie(imageUrl);
+      }
+      if (newBackgroundImageNaissance) {
+        const imageUrl = await uploadImage(newBackgroundImageNaissance);
+        profileData.backgroundImageNaissance = imageUrl;
+        setBackgroundImageNaissance(imageUrl)
+      }
+      if (newBackgroundImageFeteDesMeres) {
+        const imageUrl = await uploadImage(newBackgroundImageFeteDesMeres);
+        profileData.backgroundImageFeteDesMeres = imageUrl;
+        setBackgroundImageFeteDesMeres(imageUrl);
+      }
+
+      await axios.put(`${backendUrl}/auth/profile`, profileData, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+
+      setSuccessMessage('Votre profil a été mis à jour avec succès.');
+      setErrorMessage('');
+    } catch (error) {
+      console.error(error);
+      setErrorMessage('Une erreur s\'est produite lors de la mise à jour de votre profil. Veuillez réessayer.');
+      setSuccessMessage('');
+    }
+  }
+
+   return (
     <Container id="userProfileContainer">
       <h1>Profil</h1>
       <Form onSubmit={handleSubmit}>
@@ -138,25 +202,62 @@ const UserProfile = () => {
         <Form.Group controlId="formCountry">
           <Form.Label>Pays:</Form.Label>
           <Form.Control type="text" value={address.country} onChange={(e) => handleAddressChange('country', e.target.value)} />
-        </Form.Group>     
+        </Form.Group>
         <Form.Group controlId="formBackgroundImage">
           <Form.Label>Carte amour :</Form.Label>
-          
-        
-        {/* Les autres champs du formulaire */}
-        <div className='userProfileImg' style={{
-          backgroundImage: `url(${backgroundImageUrl})` ,
-        }}></div>
-              {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Ajoutez cette ligne */}
-        {successMessage && <p className="success-message">{successMessage}</p>} {/* Ajoutez cette ligne */}
-        <Form.Control type="file" accept="image/*" onChange={handleImageUpload} />
+          <Form.Control type="file" accept="image/*" onChange={handleImageUploadAmour} />  
+          <div className='userProfileImg' style={{
+            backgroundImage: `url(${backgroundImageAmour})`,
+          }}></div>
         </Form.Group>
+        <Form.Group controlId="formBackgroundImage">
+          <Form.Label>Carte mariage :</Form.Label>
+          <Form.Control type="file" accept="image/*" onChange={handleImageUploadMariage} />  
+          <div className='userProfileImg' style={{
+            backgroundImage: `url(${backgroundImageMariage})`,
+          }}></div>
+        </Form.Group>
+        <Form.Group controlId="formBackgroundImage">
+          <Form.Label>Carte amitié :</Form.Label>
+          <Form.Control type="file" accept="image/*" onChange={handleImageUploadAmitie} />  
+          <div className='userProfileImg' style={{
+            backgroundImage: `url(${backgroundImageAmitie})`,
+          }}></div>
+        </Form.Group>
+        <Form.Group controlId="formBackgroundImage">
+          <Form.Label>Carte Naissance :</Form.Label>
+          <Form.Control type="file" accept="image/*" onChange={handleImageUploadNaissance} />  
+          <div className='userProfileImg' style={{
+            backgroundImage: `url(${backgroundImageNaissance})`,
+          }}></div>
+         </Form.Group>
+         <Form.Group controlId="formBackgroundImage">
+           <Form.Label>Carte Anniversaire :</Form.Label>
+          <Form.Control type="file" accept="image/*" onChange={handleImageUploadAnniversaire} />  
+          <div className='userProfileImg' style={{
+            backgroundImage: `url(${backgroundImageAnniversaire})`,
+          }}></div>
+         </Form.Group>
+          <Form.Group controlId="formBackgroundImage">
+          <Form.Label>Carte Fête des mères :</Form.Label>
+          <Form.Control type="file" accept="image/*" onChange={handleImageUploadFeteDesMeres} />  
+          <div className='userProfileImg' style={{
+            backgroundImage: `url(${backgroundImageFeteDesMeres})`,
+          }}></div>
+         </Form.Group>
+        
+        
+        {successMessage && (
+          <Form.Text className="text-success">
+            {successMessage}
+          </Form.Text>
+        )}
         <Button variant="primary" type="submit">
-          Mettre à jour
+          Enregistrer
         </Button>
       </Form>
     </Container>
   );
 };
 
-export default UserProfile;
+export default UserProfile; 
