@@ -13,8 +13,8 @@ function GeneratedPoemTest({ poem, occasion, poemDisplay, setStep, resetStates }
   const occasionRef = useRef(occasion);
   const [backgroundImage, setBackgroundImage] = useState('');
   const [loading, setLoading] = useState(false);
-  const [padding, setPadding] = useState('20');
-  const [fontColor, setFontColor] = useState('#222');
+  const [padding, setPadding] = useState('40');
+  const [fontColor, setFontColor] = useState('black');
   const [fontWeight, setFontWeight] = useState('400');
   const [fontFamily, setFontFamily] = useState('Sacramento');
   const [fontSize, setFontSize] = useState('20');
