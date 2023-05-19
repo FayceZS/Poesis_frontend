@@ -36,10 +36,10 @@
 }
 
 .generatedPoemButton {
-    width: 130px;
+    width: 150px;
     height: 45px;
     text-align: center;
-    padding: 5px;
+    padding: 10px;
 }
 
 .print-content {
