@@ -4,6 +4,10 @@ body{
   background: #F9F7F3;
 }
 
+#root{
+  height : 100vh;
+}
+
 
 .App{
   height : 100vh;
