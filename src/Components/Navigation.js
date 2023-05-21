@@ -17,7 +17,7 @@ const Navigation = () => {
   return (
     <>
       <header>
-        <Link to="/">
+        <Link to="/" >
           <img src={logoPoesis} alt="logoPoesis"/>
         </Link>
         {isLoggedIn && (
