@@ -54,7 +54,7 @@ const AuthForm = () => {
     <div>
       {showLoginForm ? (
         <div className="authFormDiv">
-          <h1 className="authFormTitle">Identifiez-vous pour utiliser Poesis</h1>
+          {/* <h1 className="authFormTitle">Identifiez-vous pour utiliser Poesis</h1> */}
           <form onSubmit={handleSubmit} className="authForm">
             <div>
               <label htmlFor="email">Email:</label>
