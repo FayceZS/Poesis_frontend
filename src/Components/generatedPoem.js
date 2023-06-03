@@ -87,7 +87,7 @@ const fetchUserBackgroundImage = async () => {
   fontFamily: fontFamily
   };
   
- const updateCredits = async () => {
+const updateCredits = async () => {
   try {
     const token = localStorage.getItem('authToken');
     
@@ -98,9 +98,16 @@ const fetchUserBackgroundImage = async () => {
       },
     });
 
+    const currentCredits = response.data.credits;
+
+    // Vérifiez si l'utilisateur a suffisamment de crédits
+    if (currentCredits <= 0) {
+      alert("Désolé, vous n'avez pas suffisamment de crédits pour imprimer.");
+      return;
+    }
 
     // Soustrayez 1 du nombre actuel de crédits
-    const updatedCredits = response.data.credits - 1;
+    const updatedCredits = currentCredits - 1;
 
     // Mettez à jour le profil avec les nouveaux crédits
     await axios.put(`${backendUrl}/auth/profile`, { credits: updatedCredits }, {
@@ -116,6 +123,7 @@ const fetchUserBackgroundImage = async () => {
     console.error(error);
   }
 };
+
 
 
   useEffect(() => {

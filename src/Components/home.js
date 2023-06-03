@@ -14,7 +14,7 @@ const HomePage = () => {
      <div class="overlay"></div>
 
       <h3 class="animate-charcter"> POESIS</h3>
-      <p id="introText">Créer et imprimer un incroyable poème</p>
+      <p id="introText">Des mots sur vos émotions</p>
       
       {isLoggedIn ? (
         <PoemForm />

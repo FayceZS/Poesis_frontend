@@ -9,6 +9,8 @@ import AuthForm from './Components/authForm';
 import UserProfile from './Components/UserProfile';
 import HomePage from './Components/home';
 import { AuthContext } from './AuthContext';
+import LegalNotice from './Components/LegalNotice';
+
 
 function App() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -34,8 +36,9 @@ function App() {
             path="/user-profile"
             render={() => (isLoggedIn ? <UserProfile /> : <AuthForm />)}
           />
+          <Route exact path="/mentions-legales" component={LegalNotice} />
         </Switch>
-        <Footer />
+          <Footer />
       </HashRouter>
     </div>
   );
