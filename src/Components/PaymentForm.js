@@ -6,7 +6,7 @@ import axios from "axios"; // Assurez-vous d'importer axios
 import CheckoutForm from "./checkoutForm";
 import "./PaymentForm.css";
 const backendUrl = "https://pure-stream-14786.herokuapp.com";
-const stripePromise = loadStripe("pk_test_51NCK5EI5Y6tAVlOTuMEcXyt0c2W3ukWUo4B4kQmVoVRxavsxilpgKGhl6IPAdIe24VfrkWlWimjzpSoi7fN00SR000MB0eRjZY");
+const stripePromise = loadStripe("pk_live_51NCK5EI5Y6tAVlOT0Wen9P9xRu4pCiNg1D3JAAB32Pt4yztaQppIlcUHkyDBWdIFl8xz4aoB4YFQYFB6JGBAf5sz00pyCVCdJu");
 
 export default function PaymentModule({ credits, amount,fetchCredits }) {
   const [clientSecret, setClientSecret] = useState("");
