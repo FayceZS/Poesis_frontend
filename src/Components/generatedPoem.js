@@ -103,10 +103,10 @@ const updateCredits = async () => {
     // Vérifiez si l'utilisateur a suffisamment de crédits
     if (currentCredits <= 0) {
       alert("Désolé, vous n'avez pas suffisamment de crédits pour imprimer.");
-      return;
+      return false;
     }
-
-    // Soustrayez 1 du nombre actuel de crédits
+    else {
+      // Soustrayez 1 du nombre actuel de crédits
     const updatedCredits = currentCredits - 1;
 
     // Mettez à jour le profil avec les nouveaux crédits
@@ -115,6 +115,10 @@ const updateCredits = async () => {
         'Authorization': `Bearer ${token}`,
       },
     });
+      return true;
+    }
+
+    
 
     // Vous pouvez ajouter d'autres actions à effectuer après la mise à jour des crédits
     // Par exemple, recharger la page ou mettre à jour l'affichage des crédits sur l'interface utilisateur
