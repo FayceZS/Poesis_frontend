@@ -264,19 +264,19 @@ useEffect(() => {
         />
                   <img src={baby} className="animate__animated animate__backInRight" alt="naissance" />
                 </div>
-                {/* <div className="occasionChoix"> */}
-                  {/* <Form.Check
-                type="radio"
-                id="option6"
-                name="options"
-                label="Fête des mères"
-                onChange={(e) => setOccasion(e.target.value)}
-                    value="pour la fête des mères"
-                    className="animate__animated animate__backInRight"
-        /> */}
-        {/* <img src={mom} className="animate__animated animate__backInRight" alt="fete des mères"/> */}
-        {/* </div>
-         */}
+               <div className="occasionChoix">
+   <Form.Check
+     type="radio"
+     id="option6"
+     name="options"
+     label="Spécial maman"
+     onChange={(e) => setOccasion(e.target.value)}
+     value="spécialement pour ma maman "
+     className="animate__animated animate__backInRight"
+   />
+   <img src={mom} className="animate__animated animate__backInRight" alt="fete des mères"/>
+</div>
+        
                  <div className="occasionChoix">
         <Form.Check
                 type="radio"
