@@ -13,6 +13,7 @@ import baby from "../img/baby.png";
 import man from "../img/man.png"
 import woman from "../img/woman.png"
 import mom from "../img/mom.png"
+import retraite from "../img/retraite.png"
 const backendUrl = "https://pure-stream-14786.herokuapp.com/generate-poem";
 
 // import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -263,8 +264,8 @@ useEffect(() => {
         />
                   <img src={baby} className="animate__animated animate__backInRight" alt="naissance" />
                 </div>
-                <div className="occasionChoix">
-                  <Form.Check
+                {/* <div className="occasionChoix"> */}
+                  {/* <Form.Check
                 type="radio"
                 id="option6"
                 name="options"
@@ -272,9 +273,23 @@ useEffect(() => {
                 onChange={(e) => setOccasion(e.target.value)}
                     value="pour la fête des mères"
                     className="animate__animated animate__backInRight"
+        /> */}
+        {/* <img src={mom} className="animate__animated animate__backInRight" alt="fete des mères"/> */}
+        {/* </div>
+         */}
+                 <div className="occasionChoix">
+        <Form.Check
+                type="radio"
+                id="option5"
+                name="options"
+                label="Une retraite"
+                onChange={(e) => setOccasion(e.target.value)}
+                    value="pour souhaiter une bonne retraite profesionnelle"
+                    className="animate__animated animate__backInRight"
         />
-        <img src={mom} className="animate__animated animate__backInRight" alt="fete des mères"/>
-        </div>
+                  <img src={retraite} className="animate__animated animate__backInRight" alt="retraite" />
+                </div>
+                
               </Form.Group>
             )}
 
