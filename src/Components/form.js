@@ -377,7 +377,8 @@ useEffect(() => {
           poem={poem}
           setStep={setStep}
           resetStates={resetStates}
-          occasion={occasionToUse}
+              occasion={occasionToUse}
+              
               />
             
 

@@ -6,7 +6,7 @@ import './generatedPoem.css';
 import axios from 'axios';
 const backendUrl = "https://pure-stream-14786.herokuapp.com";
 
-function GeneratedPoemTest({ poem, occasion, poemDisplay, setStep, resetStates }) {
+function GeneratedPoemTest({ poem, occasion, poemDisplay, setStep, resetStates}) {
   
   console.log("Au début de GeneratedPoemTest, occasion est: ", occasion);
   const poemRef = useRef();
@@ -18,7 +18,24 @@ function GeneratedPoemTest({ poem, occasion, poemDisplay, setStep, resetStates }
   const [fontWeight, setFontWeight] = useState('400');
   const [fontFamily, setFontFamily] = useState('Sacramento');
   const [fontSize, setFontSize] = useState('20');
+  const [credits, setCredits] = useState(0);
+
+
+  const fetchCredits = async () => {
+  const token = localStorage.getItem('authToken');
+  const response = await axios.get(`${backendUrl}/auth/profile`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+  });
+    
+  setCredits(response.data.credits); // supposons que les crédits sont dans response.data.credits
+}
   
+  useEffect(()=> {
+      fetchCredits(); 
+  },[])
+
 
 const fetchUserBackgroundImage = async () => {
   console.log("Au début de fetchUserBackgroundImage, occasion est: ", occasionRef.current);
@@ -115,7 +132,7 @@ const updateCredits = async () => {
         'Authorization': `Bearer ${token}`,
       },
     });
-      return true;
+      return true
     }
 
     
@@ -128,6 +145,7 @@ const updateCredits = async () => {
   }
 };
 
+  
 
 
   useEffect(() => {
@@ -228,20 +246,34 @@ const updateCredits = async () => {
             >
               Recommencer
             </Button>
-            <ReactToPrint
-              trigger={() => (
-                <Button
-                  type="button"
-                  variant="success"
-                  className="generatedPoemButton"
-                >
-                  Imprimer
-                </Button>
-                
+            {credits > 0 ? (
+                <ReactToPrint
+                  trigger={() => (
+                    <Button
+                      type="button"
+                      variant="success"
+                      className="generatedPoemButton"
+                      disabled={loading} // also disable the print button while the request is being processed
+                    >
+                      Imprimer
+                    </Button>
               )}
               content={() => poemRef.current}
               onBeforePrint={updateCredits}
-            />
+                  />
+                ) : (
+                  <Button
+                    type="button"
+                    variant="success"
+                    className="generatedPoemButton"
+                    disabled={loading} // also disable the print button while the request is being processed
+                    onClick={() => alert("Désolé, vous n'avez pas suffisamment de crédits pour imprimer.")}
+                  >
+                    Imprimer
+                  </Button>
+                )}
+                
+             
           </div>
         </Card>
       </div>
