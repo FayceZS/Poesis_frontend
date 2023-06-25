@@ -68,7 +68,7 @@ const fetchUserBackgroundImage = async () => {
         
             setBackgroundImage(response.data.backgroundImageNaissance);
             setLoading(false);
-        } else if (occasionRef.current === "pour la fête des mères") {
+        } else if (occasionRef.current === "spécialement pour ma maman ") {
         // setBackgroundImage(response.data.backgroundImageFeteDesMeres);
       setBackgroundImage(response.data.backgroundImageFeteDesMeres);
       setLoading(false);
