@@ -97,6 +97,7 @@ const UserProfile = () => {
       setBackgroundImageAmitie(response.data.backgroundImageAmitie);
       setBackgroundImageNaissance(response.data.backgroundImageNaissance);
       setBackgroundImageFeteDesMeres(response.data.backgroundImageFeteDesMeres);
+      setBackgroundImageRetraite(response.data.backgroundImageRetraite);
     } catch (error) {
       console.error(error);
     }
