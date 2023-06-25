@@ -262,7 +262,7 @@ const UserProfile = () => {
           <Form.Label>Carte retraite :</Form.Label>
           <Form.Control type="file" accept="image/*" onChange={handleImageUploadRetraite} />  
           <div className='userProfileImg' style={{
-            backgroundImage: `url(${backgroundImageFeteDesMeres})`,
+            backgroundImage: `url(${backgroundImageRetraite})`,
           }}></div>
          </Form.Group>
         
