@@ -168,7 +168,7 @@ const UserProfile = () => {
         setBackgroundImageFeteDesMeres(imageUrl);
       }
       if (newBackgroundImageRetraite) {
-        const imageUrl = await uploadImage(newBackgroundImageFeteDesMeres);
+        const imageUrl = await uploadImage(newBackgroundImageRetraite);
         profileData.backgroundImageRetraite = imageUrl;
         setBackgroundImageRetraite(imageUrl);
       }
