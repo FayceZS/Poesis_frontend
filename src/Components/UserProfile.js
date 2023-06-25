@@ -15,12 +15,14 @@ const UserProfile = () => {
   const [backgroundImageAmitie, setBackgroundImageAmitie] = useState(null);
   const [backgroundImageNaissance, setBackgroundImageNaissance] = useState(null);
   const [backgroundImageFeteDesMeres, setBackgroundImageFeteDesMeres] = useState(null);
-   const [newBackgroundImageAmour, setNewBackgroundImageAmour] = useState(null);
+  const [backgroundImageRetraite, setBackgroundImageRetraite] = useState(null);
+  const [newBackgroundImageAmour, setNewBackgroundImageAmour] = useState(null);
   const [newBackgroundImageMariage, setNewBackgroundImageMariage] = useState(null);
   const [newBackgroundImageAnniversaire, setNewBackgroundImageAnniversaire] = useState(null);
   const [newBackgroundImageAmitie, setNewBackgroundImageAmitie] = useState(null);
   const [newBackgroundImageNaissance, setNewBackgroundImageNaissance] = useState(null);
   const [newBackgroundImageFeteDesMeres, setNewBackgroundImageFeteDesMeres] = useState(null);
+  const [newBackgroundImageRetraite, setNewBackgroundImageRetraite] = useState(null);
   const [address, setAddress] = useState({
     street: '',
     city: '',
@@ -69,6 +71,12 @@ const UserProfile = () => {
   const handleImageUploadFeteDesMeres = (e) => {
     if (e.target.files && e.target.files[0]) {
       setNewBackgroundImageFeteDesMeres(e.target.files[0]);
+    }
+  };
+
+  const handleImageUploadRetraite = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setNewBackgroundImageRetraite(e.target.files[0]);
     }
   };
 
@@ -158,6 +166,11 @@ const UserProfile = () => {
         profileData.backgroundImageFeteDesMeres = imageUrl;
         setBackgroundImageFeteDesMeres(imageUrl);
       }
+      if (newBackgroundImageRetraite) {
+        const imageUrl = await uploadImage(newBackgroundImageFeteDesMeres);
+        profileData.backgroundImageRetraite = imageUrl;
+        setBackgroundImageRetraite(imageUrl);
+      }
 
       await axios.put(`${backendUrl}/auth/profile`, profileData, {
         headers: {
@@ -239,8 +252,15 @@ const UserProfile = () => {
           }}></div>
          </Form.Group>
           <Form.Group controlId="formBackgroundImage">
-          <Form.Label>Carte Fête des mères :</Form.Label>
+          <Form.Label>Carte spécial maman :</Form.Label>
           <Form.Control type="file" accept="image/*" onChange={handleImageUploadFeteDesMeres} />  
+          <div className='userProfileImg' style={{
+            backgroundImage: `url(${backgroundImageFeteDesMeres})`,
+          }}></div>
+         </Form.Group>
+         <Form.Group controlId="formBackgroundImage">
+          <Form.Label>Carte retraite :</Form.Label>
+          <Form.Control type="file" accept="image/*" onChange={handleImageUploadRetraite} />  
           <div className='userProfileImg' style={{
             backgroundImage: `url(${backgroundImageFeteDesMeres})`,
           }}></div>
