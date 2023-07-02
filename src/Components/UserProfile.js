@@ -190,9 +190,10 @@ const UserProfile = () => {
   }
 
    return (
-    <Container id="userProfileContainer">
+    <div id="userProfileContainer">
       <h1>Profil</h1>
-      <Form onSubmit={handleSubmit}>
+       <Form onSubmit={handleSubmit}>
+         <div className='userProfileInfo'>
         <Form.Group controlId="formEmail">
           <Form.Label>Email:</Form.Label>
           <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -216,68 +217,76 @@ const UserProfile = () => {
         <Form.Group controlId="formCountry">
           <Form.Label>Pays:</Form.Label>
           <Form.Control type="text" value={address.country} onChange={(e) => handleAddressChange('country', e.target.value)} />
-        </Form.Group>
-        <Form.Group controlId="formBackgroundImage">
-          <Form.Label>Carte amour :</Form.Label>
-          <Form.Control type="file" accept="image/*" onChange={handleImageUploadAmour} />  
-          <div className='userProfileImg' style={{
-            backgroundImage: `url(${backgroundImageAmour})`,
-          }}></div>
-        </Form.Group>
-        <Form.Group controlId="formBackgroundImage">
-          <Form.Label>Carte mariage :</Form.Label>
-          <Form.Control type="file" accept="image/*" onChange={handleImageUploadMariage} />  
-          <div className='userProfileImg' style={{
-            backgroundImage: `url(${backgroundImageMariage})`,
-          }}></div>
-        </Form.Group>
-        <Form.Group controlId="formBackgroundImage">
-          <Form.Label>Carte amitié :</Form.Label>
-          <Form.Control type="file" accept="image/*" onChange={handleImageUploadAmitie} />  
-          <div className='userProfileImg' style={{
-            backgroundImage: `url(${backgroundImageAmitie})`,
-          }}></div>
-        </Form.Group>
-        <Form.Group controlId="formBackgroundImage">
-          <Form.Label>Carte Naissance :</Form.Label>
-          <Form.Control type="file" accept="image/*" onChange={handleImageUploadNaissance} />  
-          <div className='userProfileImg' style={{
-            backgroundImage: `url(${backgroundImageNaissance})`,
-          }}></div>
          </Form.Group>
-         <Form.Group controlId="formBackgroundImage">
-           <Form.Label>Carte Anniversaire :</Form.Label>
-          <Form.Control type="file" accept="image/*" onChange={handleImageUploadAnniversaire} />  
-          <div className='userProfileImg' style={{
-            backgroundImage: `url(${backgroundImageAnniversaire})`,
-          }}></div>
-         </Form.Group>
-          <Form.Group controlId="formBackgroundImage">
-          <Form.Label>Carte spécial maman :</Form.Label>
-          <Form.Control type="file" accept="image/*" onChange={handleImageUploadFeteDesMeres} />  
-          <div className='userProfileImg' style={{
-            backgroundImage: `url(${backgroundImageFeteDesMeres})`,
-          }}></div>
-         </Form.Group>
-         <Form.Group controlId="formBackgroundImage">
-          <Form.Label>Carte retraite :</Form.Label>
-          <Form.Control type="file" accept="image/*" onChange={handleImageUploadRetraite} />  
-          <div className='userProfileImg' style={{
-            backgroundImage: `url(${backgroundImageRetraite})`,
-          }}></div>
-         </Form.Group>
-        
-        
+         </div>
+         <div className='userProfileImgOptions'>
+  <Form.Group>
+    <Form.Label>Carte amour :</Form.Label>
+    <Form.Control id="uploadAmour" style={{display: 'none'}} type="file" accept="image/*" onChange={handleImageUploadAmour} />
+    <label htmlFor="uploadAmour" className="custom-file-upload">Modifier</label>  
+    <div className='userProfileImg' style={{
+      backgroundImage: `url(${backgroundImageAmour})`,
+    }}></div>
+  </Form.Group>
+  <Form.Group>
+    <Form.Label>Carte mariage :</Form.Label>
+    <Form.Control id="uploadMariage" style={{display: 'none'}} type="file" accept="image/*" onChange={handleImageUploadMariage} />
+    <label htmlFor="uploadMariage" className="custom-file-upload">Modifier</label>  
+    <div className='userProfileImg' style={{
+      backgroundImage: `url(${backgroundImageMariage})`,
+    }}></div>
+  </Form.Group>
+  <Form.Group>
+    <Form.Label>Carte amitié :</Form.Label>
+    <Form.Control id="uploadAmitie" style={{display: 'none'}} type="file" accept="image/*" onChange={handleImageUploadAmitie} />
+    <label htmlFor="uploadAmitie" className="custom-file-upload">Modifier</label>  
+    <div className='userProfileImg' style={{
+      backgroundImage: `url(${backgroundImageAmitie})`,
+    }}></div>
+  </Form.Group>
+  <Form.Group>
+    <Form.Label>Carte Naissance :</Form.Label>
+    <Form.Control id="uploadNaissance" style={{display: 'none'}} type="file" accept="image/*" onChange={handleImageUploadNaissance} />
+    <label htmlFor="uploadNaissance" className="custom-file-upload">Modifier</label>  
+    <div className='userProfileImg' style={{
+      backgroundImage: `url(${backgroundImageNaissance})`,
+    }}></div>
+  </Form.Group>
+  <Form.Group>
+    <Form.Label>Carte Anniversaire :</Form.Label>
+    <Form.Control id="uploadAnniversaire" style={{display: 'none'}} type="file" accept="image/*" onChange={handleImageUploadAnniversaire} />
+    <label htmlFor="uploadAnniversaire" className="custom-file-upload">Modifier</label>  
+    <div className='userProfileImg' style={{
+      backgroundImage: `url(${backgroundImageAnniversaire})`,
+    }}></div>
+  </Form.Group>
+  <Form.Group>
+    <Form.Label>Carte spécial maman :</Form.Label>
+    <Form.Control id="uploadFeteDesMeres" style={{display: 'none'}} type="file" accept="image/*" onChange={handleImageUploadFeteDesMeres} />
+    <label htmlFor="uploadFeteDesMeres" className="custom-file-upload">Modifier</label>  
+    <div className='userProfileImg' style={{
+      backgroundImage: `url(${backgroundImageFeteDesMeres})`,
+    }}></div>
+  </Form.Group>
+   <Form.Group>
+      <Form.Label>Carte retraite :</Form.Label>
+      <Form.Control id="uploadRetraite" style={{display: 'none'}} type="file" accept="image/*" onChange={handleImageUploadRetraite} />
+      <label htmlFor="uploadRetraite" className="custom-file-upload">Modifier</label>  
+      <div className='userProfileImg' style={{
+        backgroundImage: `url(${backgroundImageRetraite})`,
+      }}></div>
+    </Form.Group>
+</div>     
         {successMessage && (
           <Form.Text className="text-success">
             {successMessage}
           </Form.Text>
         )}
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className='userProfileButton'>
           Enregistrer
         </Button>
       </Form>
-    </Container>
+    </div>
   );
 };
 
