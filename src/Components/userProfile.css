@@ -20,6 +20,14 @@
     justify-content: space-around;
 }
 
+.userProfileInfo div .form-label{
+    font-size : 12px;
+}
+
+.userProfileInfo div input{
+    max-width : 120px;
+}
+
 .userProfileImgOptions{
     display: flex;
     justify-content: space-around;
