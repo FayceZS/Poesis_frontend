@@ -87,6 +87,10 @@
 
 }
 
+.poemLine{
+    margin-bottom: 0px;
+}
+
 @media print {
 
     @page {

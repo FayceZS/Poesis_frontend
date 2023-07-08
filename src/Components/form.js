@@ -97,17 +97,24 @@ const PoemForm = () => {
   const poemDisplay = (poem) => {
   const lines = poem.split('\n');
   const formattedLines = lines.map((line, index) => {
+    const isLineEmpty = !line.trim(); // Vérifier si la ligne est vide
+    const commonProps = { // Les propriétés communes
+      key: index, 
+      className: "poemLine",
+      contentEditable: 'true',
+      style: isLineEmpty ? { display: 'none' } : {} // Si la ligne est vide, mettre display à 'none'
+    };
     if (index > 0 && index % 4 === 0) {
       return (
         <React.Fragment key={index}>
-          <div className="poemLine" style={{ marginTop: '1rem' }}>{line}</div>
+          <p {...commonProps} style={{ ...commonProps.style, marginTop: '1rem' }}>{line}</p>
         </React.Fragment>
       );
     } else {
       return (
-        <div key={index} className="poemLine">
+        <p {...commonProps}>
           {line}
-        </div>
+        </p>
       );
     }
   });
@@ -233,7 +240,7 @@ useEffect(() => {
                 type="radio"
                 id="option3"
                 name="options"
-                label="un anniversaire"
+                label="Un anniversaire"
                 onChange={(e) => setOccasion(e.target.value)}
                     value="d'anniversaire"
                     className="animate__animated animate__backInRight"
