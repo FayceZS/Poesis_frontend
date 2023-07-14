@@ -72,7 +72,13 @@ const fetchUserBackgroundImage = async () => {
         // setBackgroundImage(response.data.backgroundImageFeteDesMeres);
       setBackgroundImage(response.data.backgroundImageFeteDesMeres);
       setLoading(false);
-    } else {
+    }
+    else if (occasionRef.current === "pour lui rendre hommage suite à son décès") {
+        // setBackgroundImage(response.data.backgroundImageFeteDesMeres);
+      setBackgroundImage(response.data.backgroundImageHommage);
+      setLoading(false);
+    }
+    else {
       
       setLoading(false);
       console.log("Pas d'occasion")

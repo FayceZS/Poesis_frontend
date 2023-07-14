@@ -14,6 +14,7 @@ import man from "../img/man.png"
 import woman from "../img/woman.png"
 import mom from "../img/mom.png"
 import retraite from "../img/retraite.png"
+import drame from "../img/drame.png"
 const backendUrl = "https://pure-stream-14786.herokuapp.com/generate-poem";
 
 // import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -295,6 +296,18 @@ useEffect(() => {
                     className="animate__animated animate__backInRight"
         />
                   <img src={retraite} className="animate__animated animate__backInRight" alt="retraite" />
+                </div>
+                <div className="occasionChoix">
+        <Form.Check
+                type="radio"
+                id="option5"
+                name="options"
+                label="Un hommage"
+                onChange={(e) => setOccasion(e.target.value)}
+                    value="pour lui rendre hommage suite à son décès"
+                    className="animate__animated animate__backInRight"
+        />
+                  <img src={drame} className="animate__animated animate__backInRight" alt="retraite" />
                 </div>
                 
               </Form.Group>
