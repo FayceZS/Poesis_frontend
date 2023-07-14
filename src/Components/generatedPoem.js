@@ -254,19 +254,19 @@ const updateCredits = async () => {
             </Button>
             {credits > 0 ? (
                 <ReactToPrint
-                  trigger={() => (
-                    <Button
-                      type="button"
-                      variant="success"
-                      className="generatedPoemButton"
-                      disabled={loading} // also disable the print button while the request is being processed
-                    >
-                      Imprimer
-                    </Button>
-              )}
-              content={() => poemRef.current}
-              onBeforePrint={updateCredits}
-                  />
+  trigger={() => (
+    <Button
+      type="button"
+      variant="success"
+      className="generatedPoemButton"
+      disabled={loading}
+    >
+      Imprimer
+    </Button>
+  )}
+  content={() => poemRef.current}
+  onAfterPrint={updateCredits}
+/>
                 ) : (
                   <Button
                     type="button"
