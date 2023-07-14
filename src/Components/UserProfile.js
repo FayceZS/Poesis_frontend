@@ -16,6 +16,8 @@ const UserProfile = () => {
   const [backgroundImageNaissance, setBackgroundImageNaissance] = useState(null);
   const [backgroundImageFeteDesMeres, setBackgroundImageFeteDesMeres] = useState(null);
   const [backgroundImageRetraite, setBackgroundImageRetraite] = useState(null);
+    const [backgroundImageHommage, setBackgroundImageHommage] = useState(null);
+
   const [newBackgroundImageAmour, setNewBackgroundImageAmour] = useState(null);
   const [newBackgroundImageMariage, setNewBackgroundImageMariage] = useState(null);
   const [newBackgroundImageAnniversaire, setNewBackgroundImageAnniversaire] = useState(null);
@@ -23,6 +25,8 @@ const UserProfile = () => {
   const [newBackgroundImageNaissance, setNewBackgroundImageNaissance] = useState(null);
   const [newBackgroundImageFeteDesMeres, setNewBackgroundImageFeteDesMeres] = useState(null);
   const [newBackgroundImageRetraite, setNewBackgroundImageRetraite] = useState(null);
+    const [newBackgroundImageHommage, setNewBackgroundImageHommage] = useState(null);
+
   const [address, setAddress] = useState({
     street: '',
     city: '',
@@ -79,6 +83,11 @@ const UserProfile = () => {
       setNewBackgroundImageRetraite(e.target.files[0]);
     }
   };
+  const handleImageUploadHommage = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setNewBackgroundImageHommage(e.target.files[0]);
+    }
+  };
 
   const fetchProfile = async () => {
     try {
@@ -98,6 +107,9 @@ const UserProfile = () => {
       setBackgroundImageNaissance(response.data.backgroundImageNaissance);
       setBackgroundImageFeteDesMeres(response.data.backgroundImageFeteDesMeres);
       setBackgroundImageRetraite(response.data.backgroundImageRetraite);
+            setBackgroundImageHommage(response.data.backgroundImageHommage);
+
+      
     } catch (error) {
       console.error(error);
     }
@@ -171,6 +183,11 @@ const UserProfile = () => {
         const imageUrl = await uploadImage(newBackgroundImageRetraite);
         profileData.backgroundImageRetraite = imageUrl;
         setBackgroundImageRetraite(imageUrl);
+      }
+      if (newBackgroundImageHommage) {
+        const imageUrl = await uploadImage(newBackgroundImageHommage);
+        profileData.backgroundImageHommage = imageUrl;
+        setBackgroundImageHommage(imageUrl);
       }
 
       await axios.put(`${backendUrl}/auth/profile`, profileData, {
@@ -274,6 +291,14 @@ const UserProfile = () => {
       <label htmlFor="uploadRetraite" className="custom-file-upload">Modifier</label>  
       <div className='userProfileImg' style={{
         backgroundImage: `url(${backgroundImageRetraite})`,
+      }}></div>
+           </Form.Group>
+           <Form.Group>
+      <Form.Label>Carte hommage :</Form.Label>
+      <Form.Control id="uploadHommage" style={{display: 'none'}} type="file" accept="image/*" onChange={handleImageUploadHommage} />
+      <label htmlFor="uploadHommage" className="custom-file-upload">Modifier</label>  
+      <div className='userProfileImg' style={{
+        backgroundImage: `url(${backgroundImageHommage})`,
       }}></div>
     </Form.Group>
 </div>     
