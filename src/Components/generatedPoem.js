@@ -221,11 +221,12 @@ const updateCredits = async () => {
               value={fontFamily}
               onChange={(e) => setFontFamily(e.target.value)}
             >
-              <option value="Lato">Lato</option>
-              <option value="Sacramento">Sacramento</option>
-              <option value="Arial">Arial</option>
-              <option value="Verdana">Verdana</option>
-              <option value="Times New Roman">Times New Roman</option>
+              <option class="option-lato" value="Lato">Lato</option>
+<option class="option-sacramento" value="Sacramento">Sacramento</option>
+<option class="option-arial" value="Arial">Arial</option>
+<option class="option-verdana" value="Verdana">Verdana</option>
+                  <option class="option-times" value="Times New Roman">Times New Roman</option>
+                  
             </select>
             </div>
             

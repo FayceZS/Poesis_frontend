@@ -29,6 +29,26 @@
         max-width: 100px;
 }
 
+.option-lato {
+    font-family: 'Lato', sans-serif;
+}
+
+.option-sacramento {
+    font-family: 'Sacramento', cursive;
+}
+
+.option-arial {
+    font-family: 'Arial', sans-serif;
+}
+
+.option-verdana {
+    font-family: 'Verdana', sans-serif;
+}
+
+.option-times {
+    font-family: 'Times New Roman', serif;
+}
+
 .generatedPoemContainer {
     height: max-content !important;
     max-width: 100%;
