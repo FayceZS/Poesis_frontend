@@ -49,6 +49,18 @@
     font-family: 'Times New Roman', serif;
 }
 
+.option-roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.option-dosis {
+    font-family: 'Dosis', sans-serif;
+}
+
+.option-lora {
+    font-family: 'Lora', serif;
+}
+
 .generatedPoemContainer {
     height: max-content !important;
     max-width: 100%;
