@@ -75,12 +75,14 @@
 }
 
 .print-content {
-    width: 105mm;
+    /* width: 105mm;
     min-height: 138mm;
     width:auto;
-    height:auto;
+    height:auto; */
+    width: 105mm;
+    height: 147mm;
     box-sizing: border-box;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -95,8 +97,8 @@
     width: 105mm !important;
     min-height: 147mm !important;
     /* background-image: url("../img/poemBackground.jpg"); */
-    width:auto;
-    height:auto;
+    /* width:auto;
+    height:auto; */
     background-size: contain!important;
     border : 1px solid black;
 }
