@@ -78,9 +78,11 @@
     /* width: 105mm;
     min-height: 138mm;
     width:auto;
-    height:auto; */
-    width: 105mm;
-    height: 147mm;
+    height:auto;
+     */
+
+    width: 105mm!important;
+    height: 147mm!important;
     box-sizing: border-box;
     /* overflow: hidden; */
     background-color: white;
@@ -90,17 +92,19 @@
     align-items: stretch;
     padding: 20px;
     page-break-inside: avoid;
+    border : 1px solid black;
+    margin : auto;
 }
 
 
 .cardBackground {
-    width: 105mm !important;
-    min-height: 147mm !important;
+    /* width: 105mm !important; */
+    /* min-height: 147mm !important; */
     /* background-image: url("../img/poemBackground.jpg"); */
     /* width:auto;
     height:auto; */
     background-size: contain!important;
-    border : 1px solid black;
+    /* border : 1px solid black; */
 }
 
 .cardBackground div{

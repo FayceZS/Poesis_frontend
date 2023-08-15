@@ -235,7 +235,7 @@ const updateCredits = async () => {
             
             
 </div>
-          <Card.Body id="generatedPoemContainer" className="print-content">
+          <Card.Body id="generatedPoemContainer">
             <div
               className="print-content cardBackground"
               ref={poemRef}
