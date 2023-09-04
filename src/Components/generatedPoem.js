@@ -55,7 +55,7 @@ const fetchUserBackgroundImage = async () => {
       
         setLoading(false);
       
-        } else if (occasionRef.current === "pour un mariage") {
+        } else if (occasionRef.current === "pour une demande en mariage") {
             setBackgroundImage(response.data.backgroundImageMariage);
             setLoading(false);
         } else if (occasionRef.current === "d'anniversaire") {
