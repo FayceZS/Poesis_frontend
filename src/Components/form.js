@@ -229,9 +229,9 @@ useEffect(() => {
                 type="radio"
                 id="option2"
                 name="options"
-                label="Un mariage"
+                label="Demande en mariage"
                 onChange={(e) => setOccasion(e.target.value)}
-                    value="pour un mariage"
+                    value="pour une demande en mariage"
                     className="animate__animated animate__backInRight"
         />
         <img src={mariage} className="animate__animated animate__backInRight" alt="mariage"/>
