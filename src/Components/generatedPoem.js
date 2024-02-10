@@ -18,23 +18,23 @@ function GeneratedPoemTest({ poem, occasion, poemDisplay, setStep, resetStates})
   const [fontWeight, setFontWeight] = useState('400');
   const [fontFamily, setFontFamily] = useState('Sacramento');
   const [fontSize, setFontSize] = useState('20');
-  const [credits, setCredits] = useState(0);
+  // const [credits, setCredits] = useState(0);
 
 
-  const fetchCredits = async () => {
-  const token = localStorage.getItem('authToken');
-  const response = await axios.get(`${backendUrl}/auth/profile`, {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
-  });
+//   const fetchCredits = async () => {
+//   const token = localStorage.getItem('authToken');
+//   const response = await axios.get(`${backendUrl}/auth/profile`, {
+//       headers: {
+//         'Authorization': `Bearer ${token}`,
+//       },
+//   });
     
-  setCredits(response.data.credits); // supposons que les crédits sont dans response.data.credits
-}
+//   setCredits(response.data.credits); // supposons que les crédits sont dans response.data.credits
+// }
   
-  useEffect(()=> {
-      fetchCredits(); 
-  },[])
+//   useEffect(()=> {
+//       fetchCredits(); 
+//   },[])
 
 
 const fetchUserBackgroundImage = async () => {
@@ -110,46 +110,46 @@ const fetchUserBackgroundImage = async () => {
   fontFamily: fontFamily
   };
   
-const updateCredits = async () => {
-  try {
-    const token = localStorage.getItem('authToken');
+// const updateCredits = async () => {
+//   try {
+//     const token = localStorage.getItem('authToken');
     
-    // Récupérez d'abord le profil de l'utilisateur pour obtenir le nombre actuel de crédits
-    const response = await axios.get(`${backendUrl}/auth/profile`, {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
-    });
+//     // Récupérez d'abord le profil de l'utilisateur pour obtenir le nombre actuel de crédits
+//     const response = await axios.get(`${backendUrl}/auth/profile`, {
+//       headers: {
+//         'Authorization': `Bearer ${token}`,
+//       },
+//     });
 
-    const currentCredits = response.data.credits;
+//     // const currentCredits = response.data.credits;
 
-    // Vérifiez si l'utilisateur a suffisamment de crédits
-    if (currentCredits <= 0) {
-      alert("Désolé, vous n'avez pas suffisamment de crédits pour imprimer.");
-      return false;
-    }
-    else {
-      // Soustrayez 1 du nombre actuel de crédits
-    const updatedCredits = currentCredits - 1;
+//     // Vérifiez si l'utilisateur a suffisamment de crédits
+//     // if (currentCredits <= 0) {
+//     //   alert("Désolé, vous n'avez pas suffisamment de crédits pour imprimer.");
+//     //   return false;
+//     // }
+//     // else {
+//       // Soustrayez 1 du nombre actuel de crédits
+//     // const updatedCredits = currentCredits - 1;
 
-    // Mettez à jour le profil avec les nouveaux crédits
-    await axios.put(`${backendUrl}/auth/profile`, { credits: updatedCredits }, {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
-    });
-      return true
-    }
+//     // Mettez à jour le profil avec les nouveaux crédits
+//     await axios.put(`${backendUrl}/auth/profile`, { credits: updatedCredits }, {
+//       headers: {
+//         'Authorization': `Bearer ${token}`,
+//       },
+//     });
+//       return true
+//     }
 
     
 
-    // Vous pouvez ajouter d'autres actions à effectuer après la mise à jour des crédits
-    // Par exemple, recharger la page ou mettre à jour l'affichage des crédits sur l'interface utilisateur
+//     // Vous pouvez ajouter d'autres actions à effectuer après la mise à jour des crédits
+//     // Par exemple, recharger la page ou mettre à jour l'affichage des crédits sur l'interface utilisateur
 
-  } catch (error) {
-    console.error(error);
-  }
-};
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
   
 
@@ -256,7 +256,7 @@ const updateCredits = async () => {
             >
               Recommencer
             </Button>
-            {credits > 0 ? (
+            
                 <ReactToPrint
   trigger={() => (
     <Button
@@ -269,19 +269,9 @@ const updateCredits = async () => {
     </Button>
   )}
   content={() => poemRef.current}
-  onAfterPrint={updateCredits}
+  
 />
-                ) : (
-                  <Button
-                    type="button"
-                    variant="success"
-                    className="generatedPoemButton"
-                    disabled={loading} // also disable the print button while the request is being processed
-                    onClick={() => alert("Désolé, vous n'avez pas suffisamment de crédits pour imprimer.")}
-                  >
-                    Imprimer
-                  </Button>
-                )}
+               
                 
              
           </div>
