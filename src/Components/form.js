@@ -16,6 +16,17 @@ import mom from "../img/mom.png"
 import retraite from "../img/retraite.png"
 import drame from "../img/drame.png"
 const backendUrl = "https://pure-stream-14786.herokuapp.com/generate-poem";
+const auteurs = [
+  "William Shakespeare", "Homer", "Dante Alighieri", "Jalal ad-Din Rumi",
+  "Charles Baudelaire", "Pablo Neruda", "Walt Whitman", "Federico García Lorca",
+  "Rabindranath Tagore", "Emily Dickinson", "John Keats", "Matsuo Bashō",
+  "Arthur Rimbaud", "T. S. Eliot", "Hafez", "Sappho", "Langston Hughes",
+  "Anna Akhmatova", "Sylvia Plath", "Ezra Pound"
+];
+const choisirAuteurAleatoire = () => {
+  const indexAleatoire = Math.floor(Math.random() * auteurs.length);
+  return auteurs[indexAleatoire];
+};
 
 // import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
@@ -70,17 +81,16 @@ const PoemForm = () => {
   
 }
 
-  const handleSubmit = (e) => {
-    setloadingPage(true);
-    
-    e.preventDefault();
-    
-  // Traitez les données du formulaire ici
-    const prompt = `Ecris mois un magnifique poème de maximum 8 vers (hors signature) ${occasion} pour ${gender} qui s'appelle ${firstName} en t'inspirant de ${author}, ta réponse devra contenir uniquement le poème et rien d'autre, de plus le poème devra être mis en forme de façon HTML et le poème devra faire strictement 10 lignes ou moins et il devra être en français, il devra également comporter la signature de ${signataire} sur la dernière ligne.`;
+ const handleSubmit = (e) => {
+  e.preventDefault();
+  setloadingPage(true);
+   setStep(4);
+  const auteurAleatoire = choisirAuteurAleatoire();
+  setAuthor(auteurAleatoire);
 
-   // Appeler fetchPoem avec le prompt construit
+  const prompt = `Ecris moi un magnifique poème de maximum 8 vers (hors signature) ${occasion} pour ${gender} qui s'appelle ${firstName} en t'inspirant de ${auteurAleatoire}, ta réponse devra contenir uniquement le poème et rien d'autre, de plus le poème devra être mis en forme de façon HTML et le poème devra faire strictement 10 lignes ou moins et il devra également comporter la signature de ${signataire} sur la dernière ligne.`;
+
   fetchPoem(prompt);
-  // Réinitialisez les états du formulaire
   setOccasionToUse(occasion);
   resetStates();
 };
@@ -137,7 +147,7 @@ useEffect(() => {
 }, [occasion]);
   return (
     <Container>
-      <Form onSubmit={handleSubmit} style={step === 5 ? { display: "none" } : {}}>
+      <Form onSubmit={handleSubmit} style={step === 4 ? { display: "none" } : {}}>
         <Card>
           <Card.Body>
             {step === 1 && (
@@ -314,7 +324,7 @@ useEffect(() => {
               </Form.Group>
             )}
 
-            {step === 4 && (
+            {/* {step === 4 && (
               <Form.Group controlId="author" className="formController show ">
                 <Form.Label>
                   De quel auteur doit-on s'inspirer pour ce poème ? 
@@ -367,39 +377,43 @@ useEffect(() => {
         />
                 
               </Form.Group>
-            )}
+            )} */}
 
-            <div className="d-flex justify-content-between"
-              style={step === 5 ? { display: "none" } : {}}>
-              {step > 1 && (
-                <Button  className="formButton" variant="none" onClick={() => setStep(step - 1)}>
-                  Précédent
-                  
-                </Button>
-              )}
+           <div className="d-flex justify-content-between">
+  {step > 1 && step < 4 && (
+    <Button className="formButton" variant="none" onClick={() => setStep(step - 1)}>
+      Précédent
+    </Button>
+  )}
 
-              {step <= 4 ? (
-                <Button type="button" variant="none" className="formButton" onClick={() => setStep(step <= 4 ? step + 1 : 5)}>Suivant</Button>
+  {step < 3 && (
+    <Button type="button" variant="none" className="formButton" onClick={() => setStep(step + 1)}>
+      Suivant
+    </Button>
+  )}
 
-              ) : (
-                  <Button type="submit">Soumettre</Button>
-                  
-              )}
-            </div>
+  {step === 3 && (
+    <Button type="submit">Soumettre</Button>
+  )}
+</div>
+
           </Card.Body>
         </Card>
       </Form>
-      {step === 5 && (
+      {step === 4 && (
         <Card id="poem">
           {loadingPage ? <BootstrapSpinner /> :
            
           <GeneratedPoemTest
-          poemDisplay={poemDisplay}
-          poem={poem}
-          setStep={setStep}
-          resetStates={resetStates}
+              poemDisplay={poemDisplay}
+              poem={poem}
+              setStep={setStep}
+              resetStates={resetStates}
               occasion={occasionToUse}
-              
+              gender={gender} // Nouveau
+              firstName={firstName} // Nouveau
+              author={author} // Nouveau
+              signataire={signataire} // Nouveau
               />
             
 
